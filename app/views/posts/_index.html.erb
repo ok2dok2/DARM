@@ -2,6 +2,8 @@
   <% posts.each do |post| %>
     <% if post.id.present? %>
       <li>
+        <p><%= image_tag post.user.image.url %>
+        <%= post.user.name %></p>
         <p><%= post.content %></p>
         <% if post.image.url.present? %>
         <p><%= image_tag post.image.url %></p>

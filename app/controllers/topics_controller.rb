@@ -9,6 +9,7 @@ class TopicsController < ApplicationController
 
   def create
     @topic = Topic.new(topic_params)
+    @topic.user_id = current_user.id
     @topic.save notice: "トピックを作成しました"
     redirect_to topics_path
   end

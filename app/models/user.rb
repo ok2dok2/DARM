@@ -5,4 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   mount_uploader :image, ImageUploader
   acts_as_taggable
+  has_many :topics, dependent: :destroy
+  has_many :posts, dependent: :destroy
 end

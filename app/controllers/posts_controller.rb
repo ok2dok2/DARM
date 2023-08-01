@@ -2,6 +2,7 @@ class PostsController < ApplicationController
   def create
     @topic = Topic.find(params[:topic_id])
     @post = @topic.posts.build(post_params)
+    @post.user_id = current_user.id
 
     respond_to do |format|
       if @post.save
