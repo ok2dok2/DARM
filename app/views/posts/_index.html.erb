@@ -1,0 +1,12 @@
+<ul>
+  <% posts.each do |post| %>
+    <% if post.id.present? %>
+      <li>
+        <p><%= post.content %></p>
+        <% if post.image.url.present? %>
+        <p><%= image_tag post.image.url %></p>
+        <% end %>
+      </li>
+    <% end %>
+  <% end %>
+</ul>

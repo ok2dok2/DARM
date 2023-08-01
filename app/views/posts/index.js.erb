@@ -1,0 +1,3 @@
+$("#posts_area").html("<%= j(render 'posts/index', { posts: @post.topic.posts, topic: @post.topic }) %>");
+$("textarea").val('');
+$("#notice").html("<%= j flash[:notice] %>");
