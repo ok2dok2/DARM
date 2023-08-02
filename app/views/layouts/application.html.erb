@@ -25,6 +25,9 @@
     <% if alert %>
       <p class="alert alert-error"><%= alert %></p>
     <% end %>
+    <%= link_to "한국어", change_locale_path(:ko) %>
+    <%= link_to "日本語", change_locale_path(:ja) %>
+    <%= link_to 'TOP戻る', topics_path %>
     <%= yield %>
   </body>
 </html>

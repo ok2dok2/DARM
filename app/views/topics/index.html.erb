@@ -4,14 +4,14 @@
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= button_tag t('button_topic_create') %>
   </div>
 <% end %>
 
 <p>掲示板一覧</p>
   <% @topics.each do |topic| %>
     <%= topic.name%>
-    <%= link_to '掲示板を見る', topic_path(topic.id)%>
-    <%= link_to '編集', edit_topic_path(topic.id)%>
-    <%= link_to '削除', topic_path(topic.id), method: :delete %>
+    <%= link_to t('view topic'), topic_path(topic.id)%>
+    <%= link_to t('edit'), edit_topic_path(topic.id)%>
+    <%= link_to t('delete'), topic_path(topic.id), method: :delete %>
   <% end %>
