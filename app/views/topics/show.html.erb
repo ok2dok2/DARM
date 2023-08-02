@@ -1,0 +1,9 @@
+<p>掲示板</p>
+
+  <div id="posts_area">
+    <!-- 投稿されたコメント一覧をブログの詳細ページに表示するためのrender -->
+    <%= render partial: 'posts/index', locals: { posts: @posts, topic: @topic } %>
+  </div>
+
+  <!-- コメント入力欄をブログの詳細ページに表示するためのrender -->
+  <%= render partial: 'posts/form', locals: { posts: @posts, topic: @topic } %>

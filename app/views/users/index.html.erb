@@ -1,0 +1,15 @@
+<h1>ユーザー一覧</h1>
+
+<tbody>
+  <table>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= image_tag user.image.url %></td>
+        <td><%= user.name %></td>
+        <td><%= user.age %>歳</td>
+        <td><%= user.introduce %></td>
+        <td><%= render 'users/tag_list', tag_list: user.tag_list %></td>
+      </tr>
+    <% end %>
+    </table>
+  </tbody>
