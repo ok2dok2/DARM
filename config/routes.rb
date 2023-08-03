@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  get 'relationships/create'
-  get 'relationships/destroy'
-  devise_for :users
+  devise_for :users, controllers: {
+    registrations: "users/registrations"
+  }
   resources :users, only: [:show, :index]
   resources :topics, only: [:index, :show, :edit, :destroy, :create] do
     resources :posts

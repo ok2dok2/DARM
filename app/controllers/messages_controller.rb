@@ -61,8 +61,6 @@ class MessagesController < ApplicationController
     require "google/cloud/translate/v2"
     api_key = ENV['GOOGLE_TRANSLATION_API_KEY']
     #translator = Google::Cloud::Translate.translation_v2_service(credentials: Rails.application.credentials.google_translation_api_key)
-    #translate  = Google::Cloud::Translate.new version: :v2, project_id: 'noted-tide-394113'
-    #translator= Google::Cloud::Translate::V2.new(key: 'AIzaSyBDqsQSgtxVJxtBdlhs9Icy46YLErEPgoU') 
     translator= Google::Cloud::Translate::V2.new(key: api_key) 
     result = translator.translate(text, from: source_language, to: target_language)
   
