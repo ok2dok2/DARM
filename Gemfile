@@ -8,6 +8,9 @@ gem 'carrierwave'
 gem 'mini_magick'
 gem 'jquery-rails'
 gem 'acts-as-taggable-on', '~> 9.0'
+gem 'dotenv-rails', require: 'dotenv/rails-now'
+gem 'google-cloud-translate'
+
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails', '~> 6.1.6'
