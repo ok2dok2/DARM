@@ -12,6 +12,8 @@
         <td><%= render 'follow_form', user: user %></td>
         <td><%= link_to 'メッセージ', conversations_path(sender_id: current_user.id, recipient_id: user.id), method: :post %></td>
         <% end %>
+        <td><%= link_to '編集', edit_user_registration_path%></td>
+        <td><%= link_to '削除', user_registration_path, method: :delete %></td>
     <% end %>
     </tr>
     </table>
