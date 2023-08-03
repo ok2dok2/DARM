@@ -1,0 +1,81 @@
+<% if @over_ten %>
+  <%= link_to '以前のメッセージ', '?m=all' %>
+<% end %>
+
+<div id="messages_area">
+    <% @messages.each do |message| %>
+    <% if message.body.present? %>
+      <div class="item">
+        <div class="content">
+          <div class="header"><strong><%= message.user.name %></strong> <%= message.message_time %></div>
+          <div class="list">
+            <div class="item">
+              <i class="right triangle icon"></i>
+              <%= message.body %> 
+              <% if message.image.present? %>
+              <%= image_tag message.image.url %> 
+              <% end %>
+              <% if message.user == current_user %>
+                <%= message.read ? '既読' : '未読' %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+</div>
+
+<%= form_for([@conversation, @message], remote: true ) do |f| %>
+  <div class="field">
+    <%= f.text_area :body, class: "form-control", id: "translate" %>
+  </div>
+    <%= f.text_field :user_id, value: current_user.id, type: "hidden"  %>
+  <div>
+    <%= f.file_field :image %>
+  </div>
+  <div>
+    <%= f.submit "メッセージを送る" %>
+  </div>
+<% end %>
+
+
+<h2>翻訳ボックス</h2>
+<textarea id="input-text" rows="4" cols="50"></textarea>
+<div>
+  翻訳元言語:
+  <select id="source-language">
+    <option value="ja">日本語</option>
+    <option value="ko">韓国語</option>
+  </select>
+</div>
+<div>
+  翻訳先言語:
+  <select id="target-language">
+    <option value="ko">韓国語</option>
+    <option value="ja">日本語</option>
+  </select>
+</div>
+<button id="translate-btn">翻訳</button>
+<p id="translation-result"></p>
+
+<script>
+  document.getElementById("translate-btn").addEventListener("click", () => {
+    const textToTranslate = document.getElementById("input-text").value;
+    const sourceLanguage = document.getElementById("source-language").value;
+    const targetLanguage = document.getElementById("target-language").value;
+    fetch("/conversations/<%= @conversation.id %>/messages/1/translate", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "X-CSRF-Token": "<%= form_authenticity_token %>",
+      },
+      body: JSON.stringify({ text: textToTranslate, source_language: sourceLanguage, target_language: targetLanguage }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        document.getElementById("translate").innerText = data.translation;
+      })
+      .catch((error) => console.error("Error:", error));
+  });
+</script>

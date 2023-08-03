@@ -1,0 +1,25 @@
+
+
+<div id="messages_area">
+    <% @messages.each do |message| %>
+    <% if message.body.present? %>
+      <div class="item">
+        <div class="content">
+          <div class="header"><strong><%= message.user.name %></strong> <%= message.message_time %></div>
+          <div class="list">
+            <div class="item">
+              <i class="right triangle icon"></i>
+              <%= message.body %> 
+              <% if message.image.present? %>
+              <%= image_tag message.image.url %> 
+              <% end %>
+              <% if message.user == current_user %>
+                <%= message.read ? '既読' : '未読' %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+</div>

@@ -2,6 +2,10 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
-.user-icon {
-  border-radius: 100px;
+.user_icon {
+  width:100px;
+  height:100px;
+  border-radius:50%;
+  object-fit: none;
+  object-position:54% 36%;
 }
