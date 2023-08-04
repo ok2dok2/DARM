@@ -3,6 +3,7 @@ Rails.application.routes.draw do
     registrations: "users/registrations"
   }
   resources :users, only: [:show, :index]
+  resources :events, only: [:index, :new, :create, :edit, :update, :destroy]
   resources :topics, only: [:index, :show, :edit, :destroy, :create] do
     resources :posts
   end

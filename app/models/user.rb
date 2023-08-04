@@ -6,6 +6,7 @@ class User < ApplicationRecord
   validates :password, presence: true, on: :create
   mount_uploader :image, ImageUploader
   acts_as_taggable
+  has_many :events, dependent: :destroy
   has_many :topics, dependent: :destroy
   has_many :posts, dependent: :destroy
   has_many :active_relationships, foreign_key: 'follow_id', class_name: 'Relationship', dependent: :destroy
