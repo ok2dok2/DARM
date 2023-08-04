@@ -11,6 +11,7 @@
   </head>
 
   <body>
+    <%= stylesheet_link_tag 'styles', media: 'all', 'data-turbolinks-track': 'reload' %>
     <% if user_signed_in? %>
       <%= link_to "logout", destroy_user_session_path, method: :delete %>
       <%= link_to "mypage", user_path(current_user.id) %>
@@ -25,10 +26,21 @@
     <% if alert %>
       <p class="alert alert-error"><%= alert %></p>
     <% end %>
-    <%= link_to "한국어", change_locale_path(:ko) %>
-    <%= link_to "日本語", change_locale_path(:ja) %>
-    <%= link_to "USER", users_path %>
-    <%= link_to 'TOP戻る', topics_path %>
+    <details>
+      <summary>choose langage </summary>
+        <div class="langage">
+        <p><%= link_to "한국어", change_locale_path(:ko) %></p>
+        <p><%= link_to "日本語", change_locale_path(:ja) %></p>
+        </div>
+    </details>
+
+    <nav>
+      <ul>
+        <li><%= link_to "USER", users_path, class: "user_menu" %></li>
+        <li><%= link_to "EVENT", events_path, class: "event_menu" %></li>
+        <li><%= link_to 'TOP戻る', topics_path, class: "top_menu" %></li>
+      </ul>
+    </nav>
     <%= yield %>
   </body>
 </html>
