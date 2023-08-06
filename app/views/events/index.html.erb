@@ -5,6 +5,17 @@
 <body>
 <h2>event index</h2>
 
+  <%= form_tag events_path, method: :get do %>
+  <%= text_field_tag :tag, params[:tag], placeholder: "オフ会検索", class:"search_container" %>
+  <button class="event_button" type="submit">
+    <i class="bi bi-search-heart"></i>
+  </button>
+  <% end %>
+
+
+
+  
+
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal1">
   make event
 </button>

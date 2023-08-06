@@ -1,6 +1,9 @@
 class EventsController < ApplicationController
   def index
     @events = Event.all
+    if params[:tag]
+      @events = Event.tagged_with(params[:tag], wild: true)
+    end
     @event = Event.new
   end
   
