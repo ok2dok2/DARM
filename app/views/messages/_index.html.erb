@@ -11,7 +11,7 @@
               <i class="right triangle icon"></i>
               <%= message.body %> 
               <% if message.image.present? %>
-              <%= image_tag message.image.url %> 
+              <%= image_tag message.image.url, class:"dmimage" %> 
               <% end %>
               <% if message.user == current_user %>
                 <%= message.read ? '既読' : '未読' %>

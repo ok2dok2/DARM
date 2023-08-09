@@ -20,6 +20,13 @@
       <%= link_to "login", new_user_session_path %>
     <% end %>
 
+    <div class='icon'>
+    <p><%= link_to users_path do %>
+    <%= image_tag 'topimage.png', class:'topimage' %>
+    <%end%>
+    TOPページ作ったら差し替え
+    </p>
+    </div>
     <% if notice %>
       <p class="alert alert-notice"><%= notice %></p>
     <% end %>
