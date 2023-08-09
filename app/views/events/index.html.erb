@@ -68,23 +68,25 @@
 
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">OK</button>
       </div>
     </div>
   </div>
 </div>
 
 <% @events.each do |event| %>
-  <td><%= image_tag event.image.url%></td>
-  <td><%= event.name%></td>
-  <td><%= event.place%></td>
-  <td><%= event.start_at%></td>
-  <td><%= event.introduce%></td>
-  <td><%= event.contact%></td>
-  <td><%= render 'events/tag_list', tag_list: event.tag_list %></td>
+  <div class="event">
+  <%= image_tag event.image.url, id:"image"%>
+  <p id="name"><%= event.name%></p>
+  <p>time:<%= event.start_at%></p>
+  <p>主催者からのコメント</p>
+  <div class="introduce">
+  <p id="introduce">introduce<%= event.introduce%></p>
+  </div>
+  <p>place:<%= event.place%></p>
+  <p>contact:<%= event.contact%></p>
+  <p>tag:<%= render 'events/tag_list', tag_list: event.tag_list %></p>
 <% end %>
-
-
+</div>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>

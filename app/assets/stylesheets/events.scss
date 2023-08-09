@@ -16,3 +16,33 @@
   background-color: pink;
 }
 
+.event {
+  background-color: pink;
+  width:700px;
+  margin: 0px auto;
+  text-align: center;
+}
+
+#image {
+  width: 680px;
+  object-fit: cover;
+  margin: 10px auto;
+  text-align: center;
+}
+
+.event p {
+  text-align: left;
+  margin: 0.3em;
+  margin-left: 10px;
+}
+
+#name {
+  font-weight: bold;
+}
+
+#introduce{
+  background-color: white;
+  width: 680px;
+  border:solid ;
+  border-color: #999;
+}

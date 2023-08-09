@@ -46,3 +46,11 @@ li {
   color: white;
   margin-right: 35px;
 }
+
+.topimage {
+  text-align: center;
+}
+
+.icon {
+  margin: 0 auto;
+}

@@ -17,16 +17,19 @@
     <tr>
         <td>
           <%= link_to user_path(user.id) do%>
-          <%= image_tag user.image.url, class: "user_icon" %>
+          <% if user.images.present? %>
+          <%= image_tag user.first_image ,class: "user_icon" %>
+          <% end %>
           <% end %>
         </td>
         <td><p><%= user.name %></p><p><%= user.age %>age</p></td>
         <td><%= user.introduce %></td>
         <td><%= render 'users/tag_list', tag_list: user.tag_list %></td>
-        <td><%= link_to '詳細', user_path(user.id)%></td>
         <% unless user.id == current_user.id %>
         <td><%= render 'follow_form', user: user %></td>
-        <td><%= link_to 'メッセージ', conversations_path(sender_id: current_user.id, recipient_id: user.id), method: :post %></td>
+        <td><%= link_to conversations_path(sender_id: current_user.id, recipient_id: user.id), method: :post do %>
+          <%= image_tag 'mail150.png', class:"mail_image" %></td>
+          <% end %>
         <% end %>
         <td><%= link_to '編集', edit_user_registration_path%></td>
         <td><%= link_to '削除', user_registration_path, method: :delete %></td>
