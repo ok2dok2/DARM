@@ -11,21 +11,21 @@
   </head>
 
   <body>
+  <div class="kotei">
     <%= stylesheet_link_tag 'styles', media: 'all', 'data-turbolinks-track': 'reload' %>
     <% if user_signed_in? %>
       <%= link_to "logout", destroy_user_session_path, method: :delete %>
-      <%= link_to "mypage", user_path(current_user.id) %>
+      <%= link_to "mypage", user_path(current_user.id), data: {"turbolinks" => false} %>
     <% else %>
       <%= link_to "sign up", new_user_registration_path %>
       <%= link_to "login", new_user_session_path %>
     <% end %>
 
     <div class='icon'>
-    <p><%= link_to users_path do %>
-    <%= image_tag 'topimage.png', class:'topimage' %>
-    <%end%>
-    TOPページ作ったら差し替え
-    </p>
+      <%= link_to users_path do %>
+        <%= image_tag 'topimage.png', class:'topimage' %>
+      <% end %>
+      <!-- TOPページ作ったら差し替え -->
     </div>
     <% if notice %>
       <p class="alert alert-notice"><%= notice %></p>
@@ -33,21 +33,25 @@
     <% if alert %>
       <p class="alert alert-error"><%= alert %></p>
     <% end %>
-    <details>
-      <summary>choose langage </summary>
-        <div class="langage">
-        <p><%= link_to "한국어", change_locale_path(:ko) %></p>
-        <p><%= link_to "日本語", change_locale_path(:ja) %></p>
-        </div>
-    </details>
-
     <nav>
       <ul>
         <li><%= link_to "USER", users_path, class: "user_menu" %></li>
         <li><%= link_to "EVENT", events_path, class: "event_menu" %></li>
+        <li><%= link_to 'MESSAGE', conversations_path, class: "conversation_menu" %></li>
         <li><%= link_to 'TOP戻る', topics_path, class: "top_menu" %></li>
+        <li>
+          <%= link_to change_locale_path(:ko) do %>
+            <%= image_tag "ko100.png",  class: "korean" %>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to change_locale_path(:ja) do %>
+          <%= image_tag "ja100.png",  class: "japanese" %>
+          <% end %>
+          </li>
       </ul>
     </nav>
+  </div>
     <%= yield %>
   </body>
 </html>

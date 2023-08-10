@@ -1,14 +1,22 @@
 class UsersController < ApplicationController
   def index
-    @users = User.all
+    @users = User.where.not(id: current_user.id)
+    #@users = User.all
 
   if params[:tag_name]
-    @users = User.tagged_with(params[:tag_name])
+    @users = User.where.not(id: current_user.id).tagged_with(params[:tag_name])
   end
 
   if params[:tag]
-    @users = User.tagged_with(params[:tag], wild: true)
+    @users = User.where.not(id: current_user.id).tagged_with(params[:tag], wild: true)
   end
+
+    @distances = []
+    @users.each do |user|
+      @distances << current_user.distance_to(user)
+
+    end
+
   end
 
   def show
@@ -25,5 +33,14 @@ class UsersController < ApplicationController
   def follower
     @user = User.find(params[:id])
     @users = @user.followers
+  end
+
+  def update_location
+    @user = current_user
+    latitude = params[:latitude]
+    longitude = params[:longitude]
+    
+    @user.update(latitude: latitude, longitude: longitude)
+    render json: { message: '位置情報が更新されました。' }
   end
 end

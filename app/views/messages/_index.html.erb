@@ -1,14 +1,16 @@
-
-
 <div id="messages_area">
     <% @messages.each do |message| %>
     <% if message.body.present? %>
       <div class="item">
         <div class="content">
+        <div class="item <%= message.user == current_user ? 'right' : 'left' %>">
           <div class="header"><strong><%= message.user.name %></strong> <%= message.message_time %></div>
           <div class="list">
-            <div class="item">
+            <div class="item <%= message.user == current_user ? 'right' : 'left' %>">
               <i class="right triangle icon"></i>
+              <% unless message.user == current_user %>
+              <%= image_tag message.user.first_image, class:"talk_icon" %>
+              <% end %>
               <%= message.body %> 
               <% if message.image.present? %>
               <%= image_tag message.image.url, class:"dmimage" %> 
@@ -16,10 +18,12 @@
               <% if message.user == current_user %>
                 <%= message.read ? '既読' : '未読' %>
               <% end %>
+              
             </div>
           </div>
         </div>
       </div>
+    </div>
     <% end %>
   <% end %>
 </div>

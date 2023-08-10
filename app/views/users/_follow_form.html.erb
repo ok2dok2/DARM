@@ -2,11 +2,16 @@
   <% unless current_user.following?(user) %>
     <%= form_for(current_user.active_relationships.build(follower_id: user.id), remote: true) do |f| %>
       <%= f.hidden_field :follower_id %>
-      <%= f.submit "フォロー" %>
+      <%= f.button :submit, class:"followbtn" do %>
+      <i class="bi bi-heart-fill"></i>
+      <%end%>
+      
     <% end %>
   <% else %>
     <%= form_for(current_user.active_relationships.find_by(follower_id: user.id), remote: true, method: :delete ) do |f| %>
-      <%= f.submit "フォロー解除" %>
+      <%= f.button :submit, class:"remove" do %>
+      <i class="bi bi-heartbreak-fill"></i>
+      <%end%>
     <% end %>
   <% end %>
 </div>

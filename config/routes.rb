@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     member do
       get :following, :follower
     end
+    put :update_location, on: :member
   end
   resources :events, only: [:index, :new, :create, :edit, :update, :destroy]
   resources :topics, only: [:index, :show, :edit, :destroy, :create] do
