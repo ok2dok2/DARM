@@ -5,6 +5,7 @@ class MessagesController < ApplicationController
 
   def index
     @messages = @conversation.messages
+    @message_parson = @conversation.recipient
 
     if @messages.length >10
       @over_ten = true

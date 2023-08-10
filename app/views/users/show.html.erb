@@ -10,8 +10,13 @@
 <body>
 <table>
 
+
+
+
 <td><%= image_tag @user.first_image, class:"mypage_user_icon" %></td>
-<td><%= button_to 'プロフィール編集', edit_user_registration_path%></td>
+<td><%= button_to 'プロフィール編集', edit_user_registration_path%>
+    <button id="getLocationButton">距離を公開する</button></td>
+
 </table>
 
 <p id="name"><%= @user.name%></p>
@@ -55,6 +60,64 @@
       <% end %>
     </td>
   <% end %>
+
+  <script>
+document.addEventListener('DOMContentLoaded', function() {
+  var getLocationButton = document.getElementById('getLocationButton');
+  var locationInfo = document.getElementById('locationInfo');
+  var latitudeSpan = document.getElementById('latitude');
+  var longitudeSpan = document.getElementById('longitude');
+
+  getLocationButton.addEventListener('click', getLocation);
+
+  function getLocation() {
+    if ("geolocation" in navigator) {
+      navigator.geolocation.getCurrentPosition(function(position) {
+        var latitude = position.coords.latitude;
+        var longitude = position.coords.longitude;
+
+        // 取得した位置情報を表示
+        //latitudeSpan.textContent = latitude;
+        //longitudeSpan.textContent = longitude;
+        //locationInfo.style.display = 'block';
+
+        // 取得した位置情報をサーバーに送信
+        sendLocationToServer(latitude, longitude);
+      }, showError);
+    } else {
+      alert("Geolocation is not supported by this browser.");
+    }
+  }
+
+  function sendLocationToServer(latitude, longitude) {
+    var url = '<%= update_location_user_path(@user) %>';
+    var data = {
+      latitude: latitude,
+      longitude: longitude
+    };
+
+    fetch(url, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+        'X-CSRF-Token': '<%= form_authenticity_token %>'
+      },
+      body: JSON.stringify(data)
+    })
+    .then(response => response.json())
+    .then(result => {
+      console.log(result.message);
+    })
+    .catch(error => {
+      console.error('APIリクエストエラー:', error);
+    });
+  }
+
+  function showError(error) {
+    // エラーハンドリングのコードを追加
+  }
+});
+</script>
 
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>

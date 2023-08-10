@@ -4,3 +4,7 @@ ko:
   edit: '편집'
   delete: '삭제'
   Content: '投稿内容'
+  time:
+    formats:
+      default: "%Y/%m/%d %H:%M:%S"
+      short: "%m/%d %H:%M"
