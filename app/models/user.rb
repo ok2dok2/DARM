@@ -13,6 +13,7 @@ class User < ApplicationRecord
   has_many :passive_relationships, foreign_key: 'follower_id', class_name: 'Relationship', dependent: :destroy
   has_many :followers, through: :passive_relationships, source: :follow
   mount_uploaders :images, ImageUploader
+  validate :validate_image_count
 
   def first_image
     images.first&.url
@@ -47,6 +48,18 @@ class User < ApplicationRecord
 
     distance = earth_radius * c
     distance.round(2) # 小数点2桁に丸める
+    end
+
+    private
+
+    def validate_image_count
+      # ここ最小,最大の画像枚数を指定
+      min_images = 1
+      max_images = 3
+  
+      # if image.size < min_images || image.size > max_images
+      #   errors.add(:image, "画像の枚数は#{min_images}枚から#{max_images}枚にしてください")
+      # end
     end
 
 end
