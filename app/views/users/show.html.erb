@@ -12,9 +12,10 @@
 
 
 
-
+    <% if @user.images.present? %>
 <td><%= image_tag @user.first_image, class:"mypage_user_icon" %></td>
-<td><%= button_to 'プロフィール編集', edit_user_registration_path%>
+<%end%>
+<td><%= button_to 'プロフィール編集', edit_user_registration_path, method: :get %>
     <button id="getLocationButton">距離を公開する</button></td>
 
 </table>
@@ -26,6 +27,7 @@
 
 
 <div class="mytab">
+<div style="width:100%;">
 <ul class="nav nav-tabs" id="myTab" role="tablist">
   <li class="nav-item">
     <a class="nav-link active" id="following-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">following</a>
@@ -34,6 +36,7 @@
     <a class="nav-link" id="follower-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">follower</a>
   </li>
 </ul>
+</div>
 <div class="tab-content" id="myTabContent">
   <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="following-tab">
     <%= render partial: 'users/following' %>

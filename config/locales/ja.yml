@@ -4,6 +4,11 @@ ja:
   edit: '編集'
   delete: '削除'
   Content: '投稿内容'
+  Log in: 'ログイン'
+  logout: 'ログアウト'
+  mypage: 'マイページ'
+  sign up: '新規登録'
+  login: 'ログイン'
   time:
     formats:
       default: "%Y/%m/%d %H:%M:%S"
