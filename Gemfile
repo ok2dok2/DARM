@@ -10,6 +10,8 @@ gem 'jquery-rails'
 gem 'acts-as-taggable-on', '~> 9.0'
 gem 'dotenv-rails', require: 'dotenv/rails-now'
 gem 'google-cloud-translate'
+gem 'rails_admin', '~> 3.0'
+gem 'cancancan'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
