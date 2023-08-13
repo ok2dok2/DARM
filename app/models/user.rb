@@ -50,6 +50,12 @@ class User < ApplicationRecord
     distance.round(2) # 小数点2桁に丸める
     end
 
+    def self.guest
+      find_or_create_by!(email: 'guest@gmail.com') do |user|
+        user.password = SecureRandom.urlsafe_base64
+      end
+    end
+    
     private
 
     def validate_image_count

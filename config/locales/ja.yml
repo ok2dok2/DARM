@@ -9,6 +9,12 @@ ja:
   mypage: 'マイページ'
   sign up: '新規登録'
   login: 'ログイン'
+  Logged in as guest user: 'ゲストでログインしました'
+  Guest user cannot be deleted: 'ゲストユーザーは削除できません'
+  Would you like to reply?: '返信しませんか？'
+  Comments from the organizer: '  主催者からのコメント'
+  Place: '開催地'
+  Tag: 'タグ'
   time:
     formats:
       default: "%Y/%m/%d %H:%M:%S"

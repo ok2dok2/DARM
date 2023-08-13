@@ -36,13 +36,69 @@
   margin-left: 10px;
 }
 
+/*イベント名*/
 #name {
+  font-weight: bold;
+  font-size: 30px;
+}
+
+/*開始時間*/
+#time {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+/*開催地*/
+#place {
   font-weight: bold;
 }
 
+.bi-pin-map-fill {
+  font-size: 25px;
+}
+
+/*連絡先*/
+#contact {
+  font-weight: bold;
+}
+
+.bi-wechat {
+  font-size: 25px;
+}
+
+/*タグ
+.tag-list {
+  background-color: white;
+  width: 500px;
+  border:solid ;
+  border-color: #999;
+  padding: 5px;
+  margin: auto;
+  text-align:left;
+}*/
+
+.tag-list {
+  width: 680px;
+  text-align:left;
+  margin: auto;
+  background-color: white;
+  padding: 3px;
+}
+
+
+/*紹介文*/
 #introduce{
   background-color: white;
   width: 680px;
   border:solid ;
   border-color: #999;
 }
+
+.tag_ditail{
+  background-color: black;
+  color: white;
+  padding: 3px;
+  margin-left: 3px;
+}
+
+
