@@ -8,6 +8,12 @@ ko:
   mypage: '내 프로필'
   sign up: '계정 만들기'
   login: '로그인'
+  Logged in as guest user: '게스트로 로그인했습니다'
+  Guest user cannot be deleted: '게스트는  삭제 못합니다'
+  Would you like to reply?: '답장을 안하시나요？'
+  Comments from the organizer: 'aaaaa'
+  Place: '장소'
+  Tag: '테그'
   time:
     formats:
       default: "%Y/%m/%d %H:%M:%S"

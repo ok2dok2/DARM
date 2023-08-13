@@ -3,6 +3,10 @@
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
 
-.user-icon {
-  border-radius: 100px;
+.icon {
+  width:70px;
+  height:70px;
+  border-radius:50%;
+  object-fit: cover;
+  object-position:54% 36%;
 }

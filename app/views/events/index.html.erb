@@ -3,8 +3,6 @@
 </head>
 
 <body>
-<h2>event index</h2>
-
   <%= form_tag events_path, method: :get do %>
   <%= text_field_tag :tag, params[:tag], placeholder: "オフ会検索", class:"search_container" %>
   <button class="event_button" type="submit">
@@ -76,15 +74,18 @@
 <% @events.each do |event| %>
   <div class="event">
   <%= image_tag event.image.url, id:"image"%>
-  <p id="name"><%= event.name%></p>
-  <p>time:<%= event.start_at%></p>
-  <p>主催者からのコメント</p>
+  <p id="name"><%= event.name %></p>
+  <p id="time"><%= l event.start_at, format: :short %>~</p>
+  <p><%= t('Comments from the organizer') %>:</p>
   <div class="introduce">
-  <p id="introduce">introduce<%= event.introduce%></p>
+  <p id="introduce"><%= event.introduce%></p>
   </div>
-  <p>place:<%= event.place%></p>
-  <p>contact:<%= event.contact%></p>
-  <p>tag:<%= render 'events/tag_list', tag_list: event.tag_list %></p>
+  <p id="place"><i class="bi bi-pin-map-fill"></i>&ensp;<%= event.place%></p>
+  <p id="contact"><i class="bi bi-wechat"></i>&ensp;<%= event.contact%></p>
+  <p><i class="bi bi-tags-fill"></i></p>
+  <p><%= render 'events/tag_list', tag_list: event.tag_list %></p>
+  <hr style="border-top: 5px double #e88289; width: 90%; border-bottom: none;">
+<p>&nbsp;</p>
 <% end %>
 </div>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

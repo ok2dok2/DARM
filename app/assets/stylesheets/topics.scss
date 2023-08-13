@@ -1,3 +1,16 @@
 // Place all the styles related to the topics controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+
+.topic_icon {
+  width:70px;
+  height:70px;
+  border-radius:0%;
+  object-fit: cover;
+  object-position:54% 36%;
+}
+
+.ichiran {
+  margin: 0 auto;
+} 

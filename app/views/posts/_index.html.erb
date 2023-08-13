@@ -3,15 +3,18 @@
 </head>
 
 <body>
-<ul>
+<table>
   <% posts.each do |post| %>
     <% if post.id.present? %>
-      <li>
-        <p><%= image_tag post.user.image.url, class: "rounded-circle", style: "width: 100px; height: 100px;" %>
-        <%= post.user.name %></p>
-        <p><%= post.content %></p>
+      <tr>
+        <td><%= post.user.name %></td>
+      </tr>
+      <tr>
+        <td><%= image_tag post.user.first_image, class: "icon" %></td>
+        <td><%= post.content %></td>
+      </tr>
         <% if post.image.url.present? %>
-        <p><%= image_tag post.image.thumb.url %></p>
+        <p><%= image_tag post.image.url %></p>
         <% end %>
       </li>
     <% end %>

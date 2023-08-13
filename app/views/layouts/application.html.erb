@@ -20,13 +20,13 @@
       <%= link_to t("sign up"), new_user_registration_path %>
       <%= link_to t("login"), new_user_session_path %>
     <% end %>
-
+      <!-- ロゴ始まり -->
     <div class='icon'>
-      <%= link_to users_path do %>
+      <%= link_to root_path do %>
         <%= image_tag 'topimage.png', class:'topimage' %>
       <% end %>
-      <!-- TOPページ作ったら差し替え -->
     </div>
+      <!-- ロゴ終わり -->
     <% if notice %>
       <p class="alert alert-notice"><%= notice %></p>
     <% end %>
@@ -38,7 +38,7 @@
         <li><%= link_to "USER", users_path, class: "user_menu" %></li>
         <li><%= link_to "EVENT", events_path, class: "event_menu" %></li>
         <li><%= link_to 'MESSAGE', conversations_path, class: "conversation_menu" %></li>
-        <li><%= link_to 'TOP戻る', topics_path, class: "top_menu" %></li>
+        <li><%= link_to 'TOPICS', topics_path, class: "top_menu" %></li>
         <li>
           <%= link_to change_locale_path(:ko) do %>
             <%= image_tag "ko100.png",  class: "korean" %>

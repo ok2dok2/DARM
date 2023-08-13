@@ -15,4 +15,5 @@
  *= require users
  *= require events
  *= require messages
+ *= require topics
  */

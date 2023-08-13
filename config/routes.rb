@@ -1,8 +1,12 @@
 Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users, controllers: {
-    registrations: "users/registrations"
+    registrations: 'users/registrations',
+    passwords: 'users/passwords'
   }
+  devise_scope :user do
+    post 'users/guest_sign_in', to: 'users/sessions#guest_sign_in'
+  end
   resources :users, only: [:show, :index, :edit] do
     member do
       get :following, :follower
@@ -19,6 +23,7 @@ Rails.application.routes.draw do
       post "/translate", to: "messages#translate"
     end
   end
-  root to: "topics#index"
+  root to: "homes#index"
+  post '/homes/guest_sign_in', to: 'homes#guest_sign_in'
   get 'change_locale/:locale', to: 'application#change_locale', as: :change_locale
 end
