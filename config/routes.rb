@@ -14,7 +14,7 @@ Rails.application.routes.draw do
     put :update_location, on: :member
   end
   resources :events, only: [:index, :new, :create, :edit, :update, :destroy]
-  resources :topics, only: [:index, :show, :edit, :destroy, :create] do
+  resources :topics, only: [:index, :show, :edit, :destroy, :create, :update] do
     resources :posts
   end
   resources :relationships, only: [:create, :destroy]

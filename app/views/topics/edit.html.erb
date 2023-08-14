@@ -1,0 +1,20 @@
+<%= form_with(model: @topic) do |form| %>
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :image %>
+    <%= form.file_field :image %>
+  </div>
+
+  <div class="field">
+    <%= form.label :youtbe %>
+    <%= form.text_field :youtube %>
+  </div>
+
+    <div class="actions">
+    <%= button_tag t('button_topic_create') %>
+  </div>
+<% end %>
