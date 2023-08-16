@@ -1,4 +1,5 @@
 class EventsController < ApplicationController
+  before_action :authenticate_user!, only: [:create]
   def index
     @events = Event.all
     if params[:tag]
@@ -11,9 +12,10 @@ class EventsController < ApplicationController
     @event = Event.create(event_params)
     @event.user_id = current_user.id
     if @event.save
-      redirect_to events_path, notice: "maked event"
+      redirect_to events_path, notice: t("maked event")
     else
-      redirect_to events_path, notice: "don't maked event"
+      @events = Event.all
+      render :index, notice: t("don't maked event")
     end
   end
 

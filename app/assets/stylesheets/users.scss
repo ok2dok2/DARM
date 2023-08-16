@@ -28,7 +28,8 @@
 
 .user_button {
   border: none;
-  background-color: pink;
+  background-color: rgb(67, 185, 140);
+  padding: 3px;
 }
 
 /*followボタン*/
@@ -81,4 +82,88 @@
   justify-content: center;
 }
 
+#name {
+  text-align:center
+}
 
+#btn{
+  text-align:center
+}
+
+.user_introduce{
+  width: 300px;
+  position: relative;
+  display: inline-block;
+  margin: 1.5em 0 1.5em 15px;
+  padding: 7px 10px;
+  min-width: 120px;
+  max-width: 100%;
+  color: #555;
+  font-size: 16px;
+  background: 	#FFE4B5;
+  box-sizing: border-box;
+  border-radius: 12px;
+}
+
+/*user_introduce:before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: -24px;
+  margin-top: -12px;
+  border: 12px solid transparent;
+  border-right: 12px solid #FFF;
+  z-index: 2;
+}
+
+.user_introduce:after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: -30px;
+  margin-top: -14px;
+  border: 14px solid transparent;
+  border-right: 14px solid #555;
+  z-index: 1;
+}
+
+.user_introduce td {
+  margin: 0;
+  padding: 0;
+}*/
+
+.flex-container {
+  width: 800px;
+
+  margin:auto;
+}
+
+#user_image_td{
+  text-align: center;
+}
+
+#user_moji{
+  color: gray;
+}
+
+.user_search_ber{
+  width: 800px;
+  text-align: center;
+}
+
+
+#tag{
+  width: 400px;
+  height: 40px;
+}
+
+.bi bi-search{
+  background-color: none; 
+}
+
+/*followerのパーシャル*/
+.flex-container_follower{
+  text-align: left;
+  width: 800px;
+}
+/*ここまで*/

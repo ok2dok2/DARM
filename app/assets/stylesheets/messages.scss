@@ -6,7 +6,7 @@
   padding:0;
   background: #FFFFF0;
   overflow: hidden;
-  max-width: 1000px;
+  width: 800px;
   margin: 0px auto;
   font-size: 80%;
 }
@@ -17,7 +17,7 @@
 
 #messages_area {
   overflow: scroll;
-  height: 500px;
+  height: 600px;
 }
 
 .dmimage {
@@ -33,51 +33,53 @@
   height: 45px
 }
 
+/* ファイル選択の表示をなくしてる */
 #image-input {
   display: none;
 }
 
-.upload-icon {
-  cursor: pointer;
-}
-
-#upload-icon {
-  width: 50px;
-  height: 50px;
-  object-fit: cover;
-}
-
-.upload {
-  width: 40px;
-  height: 40px;
-  background-color: red;
-}
-
-#camera-icon{
-  border-radius:50%;
-  width: 40px;
-  height: 40px;
-  object-fit: cover;
-  background-color: black;
+.bi-cursor{
+  font-size: 25px;
 }
 
 .soushin{
-  border-radius:50%;
-  width: 40px;
-  height: 40px;
-  object-fit: cover;
+  border: none;
+  background:none;
+  margin-bottom: 6px;
 }
+
 
 .item.right {
   text-align: right;
-  /* 他のスタイルを追加 */
 }
+/* 他のスタイルを追加 */
 
 /* メッセージを左側に表示するスタイル */
 .item.left {
   text-align: left;
   /* 他のスタイルを追加 */
 }
+
+#right{
+  position: relative;
+  display: inline-block;
+  background: #35b6f1;
+  border-radius: 10px;
+  padding: 5px;
+  color: #fff;
+  font-size: 15px;
+}
+
+#left{
+  position: relative;
+  display: inline-block;
+  background: #f0f2f4;
+  border-radius: 10px;
+  padding: 5px;
+  color: black;
+  font-size: 15px;
+}
+
 
 .talk_icon {
   width:50px;
@@ -105,4 +107,12 @@
 .bi-arrow-bar-left {
   text-decoration: none;
   color: white;
+}
+
+.message_soushin{
+  text-align: center;
+}
+
+.bi-camera{
+  padding: 10px;
 }

@@ -1,26 +1,32 @@
-<tbody>
-  <table width="80%">
-    <% @user.following.each do |user| %>
-    <tr>
-        <td>
+<div class="flex-container_follower">
+  <tbody>
+  <table width="800px">
+    <% @user.following.each_with_index do |user,i| %>
+      <tr>
+        <td id="user_image_td">
           <%= link_to user_path(user.id) do%>
           <% if user.images.present? %>
           <%= image_tag user.first_image ,class: "user_icon" %>
+          <% else %>
+          <%= image_tag "default.png", class: "user_icon" %>
           <% end %>
           <% end %>
+          <p><%= @distances_following[i] %>km</p>
         </td>
-        <td><p><%= user.name %></p><p><%= user.age %>age</p></td>
-        <td><%= user.introduce %></td>
-        <td><%= render 'users/tag_list', tag_list: user.tag_list %></td>
+        <td class="user_introduce"><%= user.introduce %></td>
+        <td><%= render 'users/tag_list', tag_list: user.tag_list %>
+        <p id="user_moji"><%= t('maybe similar') %>!?</p></td>
         <% unless user.id == current_user.id %>
         <td><%= render 'follow_form', user: user %></td>
-        <td><%= link_to conversations_path(sender_id: current_user.id, recipient_id: user.id), method: :post do %>
-          <%= image_tag 'mail150.png', class:"mail_image" %></td>
+        <% if user.followers.exists?(current_user.id)%>
+        <td><%= link_to conversations_path(sender_id: current_user.id, recipient_id: user.id),data: {"turbolinks" => false}, method: :post do %>
+          <i class="bi bi-envelope-heart"></i></td>
           <% end %>
-        <% end %>
-        <td><%= link_to '編集', edit_user_registration_path%></td>
-        <td><%= link_to '削除', user_registration_path, method: :delete %></td>
+        <%end%>
     <% end %>
+    <% end %>
+
     </tr>
     </table>
   </tbody>
+  </div>

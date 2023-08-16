@@ -9,21 +9,24 @@
 
 <body>
 <table>
-
-
-
+  <tr>
     <% if @user.images.present? %>
-<td><%= image_tag @user.first_image, class:"mypage_user_icon" %></td>
-<%end%>
-<td><%= button_to 'プロフィール編集', edit_user_registration_path, method: :get %>
+      <td><%= image_tag @user.first_image, class:"mypage_user_icon" %></td>
+    <% else %>
+      <td><%= image_tag "default.png", class: "mypage_user_icon" %></td>
+    <%end%>
+    <td class="user_introduce"><%= @user.introduce %></td>
+  </tr>
+  <tr>
+    <td id="name"><%= @user.name%>(<%= @user.age %>)</td>
+  </tr>
+  <tr>
+    <% if @user.id == current_user.id %>
+    <td id="btn"><%= button_to 'プロフィール編集', edit_user_registration_path, method: :get %>
     <button id="getLocationButton">距離を公開する</button></td>
-
+    <%end%>
+  </tr>
 </table>
-
-<p id="name"><%= @user.name%></p>
-
-<p>１、プロフィール編集ボタンの横にプロフィールを書きたい。</p>
-<p>２、タブを画面の真ん中に持っていきたい</p>
 
 
 <div class="mytab">
@@ -35,6 +38,9 @@
   <li class="nav-item">
     <a class="nav-link" id="follower-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">follower</a>
   </li>
+  <li class="nav-item">
+    <a class="nav-link" id="gallery-tab" data-toggle="tab" href="#gallery" role="tab" aria-controls="gallery" aria-selected="false">gallery</a>
+  </li>
 </ul>
 </div>
 <div class="tab-content" id="myTabContent">
@@ -44,25 +50,11 @@
   <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="follower-tab">
     <%= render partial: 'users/follower' %>
   </div>
+  <div class="tab-pane fade" id="gallery" role="tabpanel" aria-labelledby="gallery-tab">
+    <%= render partial: 'users/show' %>
+  </div>
 </div>
 </div>
-
-
-
-<p>---------------------------------------------------------</p>
-<p>ああ</p>
-<p>ああ</p>
-<p>ああ</p>
-<p>ああ</p>
-<p>ああ</p>
-<p>ああ</p>
-  <% @user.images.each do |image|%>
-    <td>
-      <%= link_to image.to_s, data: { lightbox: 'group' } do %>
-        <%= image_tag image.to_s, class:"userimages", width:"20%" %>
-      <% end %>
-    </td>
-  <% end %>
 
   <script>
 document.addEventListener('DOMContentLoaded', function() {

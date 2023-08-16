@@ -1,3 +1,48 @@
-<h2>トップページ</h2>
+<!DOCTYPE html>
+<html lang="en">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>マッチングアプリ</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <%= stylesheet_link_tag 'styles', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-<%= link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, method: :post %>
+<%# home画面　%>
+<div class="container-fluid hero" id="hero">
+  <div id="background-image"></div>
+  <div class="row">
+    <div class="col-lg-6 offset-lg-3 text-center">
+      <h1 class="display-4"><%= t('meet new people') %></h1>
+      <p class="lead"><%= t('Connect with nice people')%> </p>
+      <p><%= link_to t("lets start"), new_user_registration_path, class: "btn btn-primary btn-lg custom-btn", role: "button" %></p>
+      <p><%= link_to t("Log in"), new_user_session_path, class: "btn btn-primary btn-lg custom-btn", role: "button" %></p>
+      <p><%= link_to t("Log in guest"), new_user_session_path, class: "btn btn-primary btn-lg custom-btn", role: "button" %></p>
+    <%# ここからアコーディオン　%>
+    <div class="accordion-wrap">
+              <div class="accordion-item">
+                <p class="accordion-header"> About 닮-DARM-!? <i class="fa fa-angle-down" aria-hidden="true"></i> </p>
+              </div>
+              <div class="accordion-text">
+                <p>TOPICS<p>
+                <p><%= t('A community between fans is possible with the bulletin board function')%></p>
+                <p>EVENT<p>
+                <p><%= t('It is possible to post information such as off-meetings')%></p>
+                <p>MESSAGE<p>
+                <p><%= t('You can directly approach users you care about or users you want to be friends with')%></p>
+                <p><%= t('You must follow each other in order to send messages')%></p>
+                <p>USER<p>
+                <p><%= t('This is the user list screen You can search for users you like by clicking on the tags displayed on the screen or by entering their name in the search bar')%></p>
+                <p>
+              </div>
+    </div>
+
+
+    </div>
+  </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

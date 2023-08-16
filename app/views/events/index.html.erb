@@ -1,69 +1,76 @@
-<head>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-</head>
+<%= render partial: 'shared/error_messages', locals: { object: @event } %>
 
-<body>
+
+<div class="event_menu_bar">
   <%= form_tag events_path, method: :get do %>
-  <%= text_field_tag :tag, params[:tag], placeholder: "オフ会検索", class:"search_container" %>
+  <%= text_field_tag :tag, params[:tag], placeholder: t('Off meeting search'), class:"search_container" %>
   <button class="event_button" type="submit">
     <i class="bi bi-search-heart"></i>
   </button>
   <% end %>
+</div>
 
-
-
-  
-
+<div class="event_menu_bar_button">
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal1">
-  make event
+  <%= t('make event')%>
 </button>
+</div>
 <div class="modal fade" id="modal1" tabindex="-1"
       role="dialog" aria-labelledby="label1" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centere" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="label1">make event</h5>
+        <h5 class="modal-title" id="label1"><%#ここいるかな？%></h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
+        <table>
         <%= form_with(model: @event) do |form| %>
-          <div class="field">
-            <%= form.label :event_name %>
-            <%= form.text_field :name %>
-          </div>
-          <div class="field">
-            <%= form.label :place %>
-            <%= form.text_field :place %>
-          </div>
-          <div class="field">
-            <%= form.label :time %>
-            <%= form.text_field :start_at %>
-          </div>
-          <div class="field">
-            <%= form.label :introduce %>
-            <%= form.text_area :introduce %>
-          </div>
-          <div class="field">
-            <%= form.label :contact %>
-            <%= form.text_field :contact %>
-          </div>
-          <div class="field">
-            <%= form.label :tag %><br />
-            <%= form.text_field :tag_list, value: @event.tag_list.join(','), class: "form-control" %>
-          </div>
-          <div class="field">
-            <%= form.label :image %><br />
-            <%= form.file_field :image %>
-          </div>
-
-        <div class="actions">
-          <%= button_tag t('button_event_create') %>
-        </div>
+          <tr>
+            <td><%= form.label t('event_name') %></td>
+            <td><%= form.text_field :name %></td>
+          </tr>
+          <tr>
+            <td><%= form.label t('place') %></td>
+            <td><%= form.text_field :place %></td>
+          </tr>
+          <tr>
+            <td><%= form.label t('start_time') %></td>
+            <td><%= form.text_field :start_at %></td>
+          </tr>
+          <tr>
+            <td><%= form.label t('Comments from the organizer') %></td>
+            <td><%= form.text_area :introduce %></td>
+          </tr>
+          <tr>
+            <td><%= form.label t('contact') %></td>
+            <td><%= form.text_field :contact %></td>
+          </tr>
+          <tr>
+            <td><%= form.label t('Tag') %></td>
+            <td><%= form.text_field :tag_list, value: @event.tag_list.join(','), class: "form-control" %></td>
+          </tr>
+          <tr>
+          <td><%= form.label t('event_image') %></td>
+          <td>
+            <label for="image-input" class="event_upload">
+            <i class="bi bi-camera"></i>
+            </label>
+            <%= form.file_field :image, id: "image-input" %>
+            </td>
+          </tr>
+          <tr>
+            <td  id="event"><button type="submit" class="event_soushin">
+            <i class="bi bi-cursor-fill"></i><%= t('make event')%>
+            </button></td>
+          </tr>
         <% end %>
+        </table>
+        <p>【<%=t('Precautions when posting')%>】</p>
+        <p><%= t('If you have more than one, separate them with [,]') %></p>
       </div>
-
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
       </div>
@@ -71,27 +78,28 @@
   </div>
 </div>
 
+
 <% @events.each do |event| %>
   <div class="event">
-  <%= image_tag event.image.url, id:"image"%>
-  <p id="name"><%= event.name %></p>
-  <p id="time"><%= l event.start_at, format: :short %>~</p>
-  <p><%= t('Comments from the organizer') %>:</p>
-  <div class="introduce">
-  <p id="introduce"><%= event.introduce%></p>
+    <% if event.image.present? %>
+      <%= image_tag event.image.url, id:"image"%>
+    <%end%>
+    <p id="name"><%= event.name %></p>
+    <p id="time"><%= l event.start_at, format: :short %>~</p>
+    <p><%= t('Comments from the organizer') %>:</p>
+    <div class="introduce">
+      <p id="introduce"><%= event.introduce%></p>
+    </div>
+    <p id="place">
+      <i class="bi bi-pin-map-fill"></i>&ensp;
+      <a href="http://maps.google.com/maps?q=<%= (event.place) %>"><%= event.place %></a>
+    </p>
+    <p id="contact"><i class="bi bi-wechat"></i>&ensp;<%= event.contact%></p>
+    <p><%= render 'events/tag_list', tag_list: event.tag_list %></p>
+    <hr style="border-top: 5px double #e88289; width: 90%; border-bottom: none;">
+    <p>&nbsp;</p>
   </div>
-  <p id="place">
-  <i class="bi bi-pin-map-fill"></i>&ensp;
-  <a href="http://maps.google.com/maps?q=<%= (event.place) %>"><%= event.place %></a>
-  </p>
-  <p id="contact"><i class="bi bi-wechat"></i>&ensp;<%= event.contact%></p>
-  <p><i class="bi bi-tags-fill"></i></p>
-  <p><%= render 'events/tag_list', tag_list: event.tag_list %></p>
-  <hr style="border-top: 5px double #e88289; width: 90%; border-bottom: none;">
-<p>&nbsp;</p>
 <% end %>
-</div>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-</body>

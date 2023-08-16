@@ -2,29 +2,17 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
-.search_container{
-  box-sizing: border-box;
-  position: relative;
-  border: 1px solid #999;
-  padding: 3px 10px;
-  border-radius: 20px;
-  height: 2.3em;
-  width: 250px;
-  white-space: nowrap;
-}
-.event_button{
-  background-color: pink;
-}
+
 
 .event {
-  background-color: pink;
-  width:700px;
+  background-color: 	#FFE4E1;
+  width:800px;
   margin: 0px auto;
   text-align: center;
 }
 
 #image {
-  width: 680px;
+  width: 780px;
   object-fit: cover;
   margin: 10px auto;
   text-align: center;
@@ -36,8 +24,10 @@
   margin-left: 10px;
 }
 
+
 /*イベント名*/
 #name {
+  text-align: left;
   font-weight: bold;
   font-size: 30px;
 }
@@ -77,28 +67,88 @@
   text-align:left;
 }*/
 
+
+/*タグ*/
 .tag-list {
   width: 680px;
   text-align:left;
   margin: auto;
   background-color: white;
-  padding: 3px;
+  padding: 0px;
 }
 
+.bi-tags-fill{
+  font-size: 25px;
+}
+
+.tag_ditail{
+  background-color: #f1ea88;
+  padding: 3px;
+  margin-left: 3px;
+}
 
 /*紹介文*/
 #introduce{
   background-color: white;
   width: 680px;
   border:solid ;
-  border-color: #999;
-}
-
-.tag_ditail{
-  background-color: black;
-  color: white;
-  padding: 3px;
-  margin-left: 3px;
+  border-color: #DCDCDC;
+  margin: auto;
 }
 
 
+/*モーダル内*/
+.bi-camera {
+  font-size: 25px;
+}
+
+.bi-cursor-fill {
+  font-size: 18px;
+}
+
+.event_soushin {
+  background-color: #FFE4E1;
+  border-radius:10px;
+}
+
+#event{
+  text-align: center;
+}
+/*ここまで*/
+
+/*上の検索バーとオフ会作成モーダル*/
+.event_menu_bar {
+  width:800px;
+  margin: 0px auto;
+  text-align: center;
+  }
+
+.event_menu_bar_button{
+  text-align: right;
+  width:800px;
+  margin: 0px auto;
+}
+
+.search_container{
+  box-sizing: border-box;
+  position: relative;
+  border: 1px solid #999;
+  padding: 3px 10px;
+  height: 2.3em;
+  width: 300px;
+  white-space: nowrap;
+}
+.event_button{
+  border: none;
+  background-color: none;
+}
+
+.bi-search-heart{
+  font-size: 20px;
+  border: none;
+}
+
+/*ここまで*/
+
+.error_explanation{
+}

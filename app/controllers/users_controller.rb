@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :authenticate_user!
   def index
     @users = User.where.not(id: current_user.id)
     #@users = User.all
@@ -23,16 +24,22 @@ class UsersController < ApplicationController
     # @user = current_user
     @user = User.find(params[:id])
     @user_tag = @user.tag_list
+    @distances_following = []
+    @user.following.each do |user|
+      @distances_following << current_user.distance_to(user)
+    end
+    @distances_follower = []
+    @user.followers.each do |user|
+      @distances_follower << current_user.distance_to(user)
+    end
   end
-
+  
   def following
     @user = User.find(params[:id])
-    @users = @user.following
   end
 
   def follower
     @user = User.find(params[:id])
-    @users = @user.followers
   end
 
   def update_location

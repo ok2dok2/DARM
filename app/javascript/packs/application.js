@@ -10,4 +10,6 @@ import "channels"
 
 Rails.start()
 Turbolinks.start()
-ActiveStorage.start()
+ActiveStorage.start() 
+
+import "./home"

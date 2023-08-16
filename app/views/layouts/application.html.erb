@@ -8,6 +8,7 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   </head>
 
   <body>
@@ -34,18 +35,19 @@
       <p class="alert alert-error"><%= alert %></p>
     <% end %>
     <nav>
-      <ul>
-        <li><%= link_to "USER", users_path, class: "user_menu" %></li>
+      <ul class="menu_ul">
+        <li><%= link_to "TOP", root_path, class: "top_menu" %></li>
+        <li><%= link_to 'TOPICS', topics_path, class: "topic_menu" %></li>
         <li><%= link_to "EVENT", events_path, class: "event_menu" %></li>
+        <li><%= link_to "USER", users_path, class: "user_menu" %></li>
         <li><%= link_to 'MESSAGE', conversations_path, class: "conversation_menu" %></li>
-        <li><%= link_to 'TOPICS', topics_path, class: "top_menu" %></li>
         <li>
-          <%= link_to change_locale_path(:ko) do %>
+          <%= link_to change_locale_path(:ko), data: {turbolinks: "false"} do %>
             <%= image_tag "ko100.png",  class: "korean" %>
           <% end %>
         </li>
         <li>
-          <%= link_to change_locale_path(:ja) do %>
+          <%= link_to change_locale_path(:ja), data: {turbolinks: "false"} do %>
           <%= image_tag "ja100.png",  class: "japanese" %>
           <% end %>
           </li>
@@ -54,4 +56,7 @@
   </div>
     <%= yield %>
   </body>
+   <footer class="footer text-center">
+    <p>&copy; 2023 DARM. All rights reserved.</p>
+  </footer>
 </html>
