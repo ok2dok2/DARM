@@ -13,6 +13,7 @@ gem 'google-cloud-translate'
 gem 'rails_admin', '~> 3.0'
 gem 'cancancan'
 gem 'rails-i18n'
+gem 'fog-aws'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails', '~> 6.1.6'
