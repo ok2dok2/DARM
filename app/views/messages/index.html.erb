@@ -62,10 +62,6 @@
   <div class="message_soushin">
     <%= f.text_area :body, class: "form-control", id: "translate" %>
     <%= f.text_field :user_id, value: current_user.id, type: "hidden" %>
-    <label for="image-input" class="upload">
-      <i class="bi bi-camera"></i>
-    </label>
-    <%= f.file_field :image, id: "image-input" %>
     <button type="submit" class="soushin">
       <i class="bi bi-cursor"></i>
     </button>
