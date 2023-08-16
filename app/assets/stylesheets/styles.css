@@ -18,11 +18,11 @@ nav {
   box-sizing: border-box;
 }
 
-ul {
+.menu_ul {
   display: flex;
 }
 
-li {
+.menu_ul li {
   list-style: none;
 }
 
@@ -34,6 +34,13 @@ li {
 }
 
 .event_menu {
+  display: block;
+  text-decoration: none;
+  color: white;
+  margin-right: 35px;
+}
+
+.topic_menu {
   display: block;
   text-decoration: none;
   color: white;
@@ -87,8 +94,20 @@ li {
   position: sticky;
   top: 0;
   background-color: aliceblue;
+  z-index: 90;
 }
 
 .language {
   text-align: right;
 }
+
+.footer {
+  background-color: dimgray;
+  padding: 10px 0;
+}
+.footer p {
+  margin-bottom: 0;
+  color: white;
+}
+
+

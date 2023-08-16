@@ -1,71 +1,88 @@
-<head>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-</head>
+<%= render partial: 'shared/error_messages', locals: { object: @topic } %>
 
 
+<div class="topic_menu_bar_button">
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal1">
-  make topic
+  <%= t('make topic') %>
 </button>
+</div>
 <div class="modal fade" id="modal1" tabindex="-1"
       role="dialog" aria-labelledby="label1" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="label1">make topic</h5>
+        <h5 class="modal-title" id="label1"></h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
+      <table>
         <%= form_with(model: @topic) do |form| %>
-          <div class="field">
-            <%= form.label :name %>
-            <%= form.text_field :name %>
-          </div>
+          <tr>
+            <td><%= form.label t('topic_name') %></td>
+            <td><%= form.text_field :name %></td>
+          </tr>
 
-          <div class="field">
-            <%= form.label :image %>
-            <%= form.file_field :image %>
-          </div>
+          <tr>
+            <td><%= form.label t('topic_introduce') %></td>
+            <td><%= form.text_field :introduce %></td>
+          </tr>
 
-          <div class="field">
-            <%= form.label :youtbe %>
-            <%= form.text_field :youtube %>
-          </div>
+          <tr>
+          <td><%= form.label t('topic_logo') %></td>
+          <td>
+            <label for="image-input" class="topic_upload">
+            <i class="bi bi-camera"></i>
+            </label>
+            <%= form.file_field :image, id: "image-input" %>
+            </td>
+          </tr>
+          <tr>
+            <td><%= form.label :youtube_URL %></td>
+            <td><%= form.text_field :youtube %></td>
+          </tr>
+          
 
-
-          <div class="actions">
-            <%= button_tag t('button_topic_create') %>
-          </div>
+          <tr>
+              <td  id="topic"><button type="submit" class="topic_soushin">
+              <i class="bi bi-cursor-fill"></i><%= t('make topic')%>
+              </button></td>
+            </tr>
         <% end %>
+        </table>
+        <p>【<%=t('Precautions when posting')%>】</p>
+        <p><%= t('youtube put ID in the video') %></p>
+        <p>https://youtu.be/●●●●●●●●●●●</p>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">OK</button>
       </div>
     </div>
   </div>
 </div>
 
 
-
+<div class="topics">
   <table class="ichiran">
   <% @topics.each do |topic| %>
     <tr>
       <% if topic.image.present?%>
-      <td><%= image_tag topic.image.url, class:"topic_icon" %></td>
+      <td><%= image_tag topic.image.url, class:"topic_icon" %>
+      <br><%= topic.posts.count%>posts</td>
       <%end%>
-      <td><%= topic.name%></td>
-      <td><%= topic.posts.count%>posts</td>
-      <td><%= link_to t('view topic'), topic_path(topic.id), data: {"turbolinks" => false} %></td>
-      <td><%= link_to t('edit'), edit_topic_path(topic.id)%></td>
-      <td><%= link_to t('delete'), topic_path(topic.id), method: :delete %></td>
+      <td id="bk"><%= link_to topic.name, topic_path(topic.id), data: {"turbolinks" => false} %>
+      <% if topic.introduce.present? %>
+      <br><%= topic.introduce %></td>
+      <% end %>
+      
+
     </tr>
   <% end %>
   </table>
-
+</div>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-</body>
+
   

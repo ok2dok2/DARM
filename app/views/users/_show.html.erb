@@ -1,0 +1,7 @@
+  <% @user.images.each do |image|%>
+    <td>
+      <%= link_to image.to_s, data: { lightbox: 'group' } do %>
+        <%= image_tag image.to_s, class:"userimages", width:"20%" %>
+      <% end %>
+    </td>
+  <% end %>

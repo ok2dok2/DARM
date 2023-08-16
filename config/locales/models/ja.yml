@@ -1,0 +1,7 @@
+ja:
+  activerecord:
+    models:
+      event:
+    attributes:
+      event: 
+        name: 'オフ会名'

@@ -1,3 +1,62 @@
 // Place all the styles related to the homes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+.custom-btn{
+  width: 200px;
+} 
+
+.accordion-wrap{
+  border-bottom: 1px solid #ddba4d;
+}
+
+.accordion-item{
+width: 100%;
+margin: 0 auto;
+cursor: pointer;
+
+margin-top: 30px;
+}
+
+.accordion-header{
+transition: ease-in-out 100ms;
+font-size: 20px;
+    color: black;
+}
+
+.accordion-text{
+width: 100%;
+
+display: none;
+padding-top: 5px;
+padding-bottom: 20px;
+}
+
+.fa{
+transition: ease-in-out 300ms;
+}
+
+.rotate-fa{
+transform: rotate(180deg);
+}
+
+
+.accordion-header .fa{
+float: right;
+line-height: 35px;
+}
+
+.accordion-gold{
+color: #ddba4d;
+}
+
+.accordion-no-bar{
+border-bottom: 0;
+}
+
+.hero {
+  background-image: url('haikei1.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+}

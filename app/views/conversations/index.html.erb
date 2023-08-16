@@ -1,28 +1,37 @@
+
 <head>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 
 <body>
-
+<div class="conversation_all">
 <h2>メッセージ一覧</h2>
   <table class="convesation_table">
     <% @conversations.each do |conversation| %>
-      <tr>
         <% if conversation.target_user(current_user).present? %>
+      <tr>
         <td rowspan="2"><%= image_tag conversation.target_user(current_user).first_image, class:"conversation_icon" %></td>
         <td><%= link_to conversation.target_user(current_user).name, conversation_messages_path(conversation)%><td>
-        <% unless conversation.messages.last.user_id == current_user.id %>
+        <% if conversation.messages.last.present? && conversation.messages.last.user_id != current_user.id %>
         <td rowspan="2"><p><%= t('Would you like to reply?') %></p></td>
+        <% else %>
+          <td rowspan="2"></td>
         <%end%>
+        <td rowspan="2" id="target_user_introduce"><%= conversation.target_user(current_user).introduce%></td>
       </tr>
       <tr>
-        <td id="conversation_message"><%= content_tag :div, conversation.messages.last.body, class:"conversation_message" %></td>
+        <% if conversation.messages.last.present? %>
+        <td id="conversation_message"><%= content_tag :div, conversation.messages.last.body, class:"conversation_message" %>
+        <% else %>
+            <td></td>
+        <%end%>
+        </td>
       </tr>
         <% end %>
-
     <% end %>
   </tbody>
 </table>
+</div>
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>

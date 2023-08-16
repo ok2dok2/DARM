@@ -1,4 +1,5 @@
 class TopicsController < ApplicationController
+  before_action :authenticate_user!, only: [:create]
   def index
     @topics = Topic.all
     @topic = Topic.new
@@ -10,8 +11,12 @@ class TopicsController < ApplicationController
   def create
     @topic = Topic.new(topic_params)
     @topic.user_id = current_user.id
-    @topic.save notice: "トピックを作成しました"
-    redirect_to topics_path
+    if @topic.save
+      redirect_to topics_path, notice: "トピックを作成しました"
+    else
+      @topics = Topic.all
+      render :index, notice:"トピックの作成に失敗しました"
+    end
   end
 
   def show
@@ -40,6 +45,6 @@ class TopicsController < ApplicationController
   private
 
   def topic_params
-    params.require(:topic).permit(:name, :image, :youtube)
+    params.require(:topic).permit(:name, :image, :youtube, :introduce)
   end
 end

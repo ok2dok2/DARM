@@ -1,10 +1,13 @@
+<%= render partial: 'shared/error_messages', locals: { object: @post } %>
+  
+  <div class="topic_all">
   <% if @topic.youtube.present? %>
   <iframe src="https://www.youtube.com/embed/<%= @topic.youtube %>"
         allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
         allowfullscreen=""
         frameborder="0"
-        height="315"
-        width="560"></iframe>
+        height="415"
+        width="700"></iframe>
   <% end %>
   
   <div id="posts_area">
@@ -14,3 +17,4 @@
 
   <!-- コメント入力欄をブログの詳細ページに表示するためのrender -->
   <%= render partial: 'posts/form', locals: { post: @post, topic: @topic } %>
+  </div>

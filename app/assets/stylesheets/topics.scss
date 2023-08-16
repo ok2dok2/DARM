@@ -4,8 +4,8 @@
 
 
 .topic_icon {
-  width:70px;
-  height:70px;
+  width:85px;
+  height:85px;
   border-radius:0%;
   object-fit: cover;
   object-position:54% 36%;
@@ -13,4 +13,39 @@
 
 .ichiran {
   margin: 0 auto;
+  border: 1px solid white;
 } 
+
+.ichiran td{
+  border: 3px solid white;
+  vertical-align:top
+}
+
+.topic_soushin {
+  background-color: #FFE4E1;
+  border-radius:10px;
+}
+
+#bk{
+  background-color: 	#D3D3D3;
+  width: 600px;
+}
+
+.topics{
+  width: 700px;
+  margin: auto;
+}
+
+.topic_menu_bar_button{
+  text-align: right;
+  width: 700px;
+  margin: auto;
+}
+
+.topic_all{
+  width: 800px;
+  margin: auto;
+  text-align: center;
+  background-color: #cff0cf;
+}
+
