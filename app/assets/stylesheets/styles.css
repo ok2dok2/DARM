@@ -61,6 +61,13 @@ nav {
   margin-right: 35px;
 }
 
+.admin_menu {
+  display: block;
+  text-decoration: none;
+  color: white;
+  margin-right: 35px;
+}
+
 .korean {
   display: block;
   text-decoration: none;

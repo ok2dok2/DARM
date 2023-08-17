@@ -9,8 +9,10 @@ ko:
   sign up: '계정 만들기'
   login: '로그인'
   Log in: '로그인'
-  Log in guest: '게스트 로그인'
-  Logged in as guest user: '게스트로 로그인했습니다'
+  Log in guest: '일반 게스트 로그인'
+  Log in admin guest: '관라자 게스트 로그인'
+  Logged in as guest user: '일반 게스트로 로그인했습니다'
+  Logged in as admin guest user: '관라자 게스트로 로그인했습니다'
   Guest user cannot be deleted: '게스트는  삭제 못합니다'
   Would you like to reply?: '답장을 안하시나요？'
   Comments from the organizer: '소개글'
@@ -42,6 +44,8 @@ ko:
   You can directly approach users you care about or users you want to be friends with: '궁금하신 유저나 친구가 되고 싶은 유저에게 메시지를 보낼 수 있습니다.'
   You must follow each other in order to send messages: '※메미지를 할려면 맞팔 필수'
   This is the user list screen You can search for users you like by clicking on the tags displayed on the screen or by entering their name in the search bar: '유저 일람입니다. 표시되는 테그를 누르거나 검색창에 이름을 입력해서 최애와 비슷하게 생긴 유저를 검색할 수 있습니다.'
+  #--------MESSAGE-------#
+  translation: '번역'
   time:
     formats:
       default: "%Y/%m/%d %H:%M:%S"

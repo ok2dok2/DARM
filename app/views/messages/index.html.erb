@@ -58,60 +58,65 @@
   <% end %>
 </div>
 
-  <%= form_for([@conversation, @message], remote: true) do |f| %>
-  <div class="message_soushin">
-    <%= f.text_area :body, class: "form-control", id: "translate" %>
-    <%= f.text_field :user_id, value: current_user.id, type: "hidden" %>
-    <button type="submit" class="soushin">
-      <i class="bi bi-cursor"></i>
-    </button>
-  </div>
-<% end %>
-
-<%# 翻訳モーダル　%>
-
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal1">
-  translation
-</button>
-<div class="modal fade" id="modal1" tabindex="-1"
-      role="dialog" aria-labelledby="label1" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="label1">translation</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
+<div class="message_soushin">
+  <div class="form-inline">
+    <%= form_for([@conversation, @message], remote: true) do |f| %>
+      <div class="form-group 2">
+        <%= f.text_area :body, class: "form-control", id: "translate" %>
+      </div>
+      <div class="form-group 3">
+        <%= f.text_field :user_id, value: current_user.id, type: "hidden" %>
+        <button type="submit" class="soushin">
+          <i class="bi bi-cursor"></i>
         </button>
       </div>
-      <div class="modal-body">------
-        <h2>翻訳</h2>
-          <textarea id="input-text" rows="4" cols="50"></textarea>
-          <div>
-            翻訳元言語:
-            <select id="source-language">
-              <option value="ja">日本語</option>
-              <option value="ko">韓国語</option>
-            </select>
+    <% end %>
+      <div class="form-group 4"><%#-----ここから翻訳%>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal1">
+          translation
+        </button>
+        <div class="modal fade" id="modal1" tabindex="-1"
+              role="dialog" aria-labelledby="label1" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="label1"><%= t('translation')%></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                  <textarea id="input-text" rows="4" cols="50"></textarea>
+                  <div>
+                    翻訳元言語:
+                    <select id="source-language">
+                      <option value="ja">日本語</option>
+                      <option value="ko">韓国語</option>
+                    </select>
+                  </div>
+                  <div>
+                    翻訳先言語:
+                    <select id="target-language">
+                      <option value="ko">韓国語</option>
+                      <option value="ja">日本語</option>
+                    </select>
+                  </div>
+                  <button id="translate-btn">翻訳</button>
+                  <p id="translation-result"></p>
+                  </div>
+                  </div>
+              </div>-------
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">OK</button>
+              </div>
+            </div>
           </div>
-          <div>
-            翻訳先言語:
-            <select id="target-language">
-              <option value="ko">韓国語</option>
-              <option value="ja">日本語</option>
-            </select>
-          </div>
-          <button id="translate-btn">翻訳</button>
-          <p id="translation-result"></p>
-          </div>
-          </div>
-      </div>-------
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">OK</button>
-      </div>
-    </div>
-  </div>
-</div>
+        </div>
+      </div><%#-----4終わり%>
+  </div><%#-----インライン終わり%>
+</div><%#-----message soushin終わり%>
+
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
@@ -135,7 +140,7 @@
     })
       .then((response) => response.json())
       .then((data) => {
-        document.getElementById("translate").innerText = data.translation;
+        document.getElementById("translate").value = data.translation;
       })
       .catch((error) => console.error("Error:", error));
   });

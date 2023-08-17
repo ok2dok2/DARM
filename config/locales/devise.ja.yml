@@ -57,6 +57,8 @@ ja:
       signed_in: 'ログインしました。'
       signed_out: 'ログアウトしました。'
       already_signed_out: '既にログアウト済みです。'
+      Logged in as guest user: '閲覧用ゲストでログインしました'
+      Logged in as admin guest user: '管理者ゲストでログインしました'
     unlocks:
       send_instructions: 'アカウントの凍結解除方法を数分以内にメールでご連絡します。'
       send_paranoid_instructions: 'アカウントが見つかった場合、アカウントの凍結解除方法を数分以内にメールでご連絡します。'

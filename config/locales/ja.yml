@@ -9,8 +9,10 @@ ja:
   mypage: 'マイページ'
   sign up: '新規登録'
   login: 'ログイン'
-  Log in guest: 'ゲストログイン'
-  Logged in as guest user: 'ゲストでログインしました'
+  Log in guest: '閲覧用ゲストログイン'
+  Log in admin guest: '管理者用ゲストグイン'
+  Logged in as guest user: '閲覧用ゲストでログインしました'
+  Logged in as admin guest user: '管理者ゲストでログインしました'
   Guest user cannot be deleted: 'ゲストユーザーは削除できません'
   Would you like to reply?: '返信しませんか？'
   #--------EVENT-------#
@@ -44,6 +46,8 @@ ja:
   You can directly approach users you care about or users you want to be friends with: '気になるユーザーやお友達になりたいユーザーに直接アプローチが可能です。'
   You must follow each other in order to send messages: '※メッセージを行うには相互フォローになる必要があります。'
   This is the user list screen You can search for users you like by clicking on the tags displayed on the screen or by entering their name in the search bar: 'ユーザーの一覧画面です。画面に表示されているタグのクリックや、検索バーに名前を入力することで、自分の推しにしているユーザーの検索が行えます。'
+  #--------MESSAGE-------#
+  translation: '翻訳'
   time:
     formats:
       default: "%Y/%m/%d %H:%M:%S"
