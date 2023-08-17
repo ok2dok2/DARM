@@ -16,6 +16,10 @@
     "webpack-cli": "^3.3.12"
   },
   "version": "0.1.0",
+  "engines": {
+    "node": "16.20.0", // ここに適切なNode.jsのバージョンを指定
+    "npm": "9.6.7"    // ここに適切なnpmのバージョンを指定
+  },
   "devDependencies": {
     "webpack-dev-server": "^3"
   },
