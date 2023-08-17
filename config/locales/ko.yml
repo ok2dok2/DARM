@@ -46,6 +46,10 @@ ko:
   This is the user list screen You can search for users you like by clicking on the tags displayed on the screen or by entering their name in the search bar: '유저 일람입니다. 표시되는 테그를 누르거나 검색창에 이름을 입력해서 최애와 비슷하게 생긴 유저를 검색할 수 있습니다.'
   #--------MESSAGE-------#
   translation: '번역'
+  japanese: '일본어'
+  korean: '한국어'
+  before translation: '번역 전'
+  After translation: '번역 후'
   time:
     formats:
       default: "%Y/%m/%d %H:%M:%S"
