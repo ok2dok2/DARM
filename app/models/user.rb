@@ -16,7 +16,6 @@ class User < ApplicationRecord
   has_many :passive_relationships, foreign_key: 'follower_id', class_name: 'Relationship', dependent: :destroy
   has_many :followers, through: :passive_relationships, source: :follow
   mount_uploaders :images, ImageUploader
-  validate :validate_image_count
 
   def first_image
     images.first&.url
@@ -56,8 +55,21 @@ class User < ApplicationRecord
     def self.guest
       find_or_create_by!(email: 'guest@gmail.com') do |user|
         user.password = SecureRandom.urlsafe_base64
+        user.name = 'guest'
+        user.introduce = 'guest'
       end
     end
+
+    def self.guest_admin
+      find_or_create_by!(email: 'guest.admin@gmail.com') do |user|
+        user.password = SecureRandom.urlsafe_base64
+        user.name = 'gst admin'
+        user.introduce = 'admin'
+        user.admin = true
+      end
+    end
+
+
     
     private
 

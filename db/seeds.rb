@@ -90,7 +90,7 @@ Event.create(
 )
 
 Event.create(
-  name: '728会'
+  name: '728会',
   start_at:'2023-07-28 11:00:00',
   place:'大阪駅',
   introduce: '紹介文紹介文紹介文紹介文',
@@ -101,7 +101,7 @@ Event.create(
 )
 
 Event.create(
-  name: 'DIVE'
+  name: 'DIVE',
   start_at:'2023-08-24 19:00:00',
   place:'新大久保 ジャカルチ市場',
   introduce: '紹介文紹介文紹介文紹介文',

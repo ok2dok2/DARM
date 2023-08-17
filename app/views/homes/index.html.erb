@@ -16,7 +16,8 @@
       <p class="lead"><%= t('Connect with nice people')%> </p>
       <p><%= link_to t("lets start"), new_user_registration_path, class: "btn btn-primary btn-lg custom-btn", role: "button" %></p>
       <p><%= link_to t("Log in"), new_user_session_path, class: "btn btn-primary btn-lg custom-btn", role: "button" %></p>
-      <p><%= link_to t("Log in guest"), new_user_session_path, class: "btn btn-primary btn-lg custom-btn", role: "button" %></p>
+      <p><%= link_to t("Log in guest"), users_guest_sign_in_path, method: :post, class: "btn btn-primary btn-lg custom-btn", role: "button" %></p>
+      <p><%= link_to t("Log in admin guest"), users_guest_admin_sign_in_path, method: :post, class: "btn btn-primary btn-lg custom-btn", role: "button" %></p>
     <%# ここからアコーディオン　%>
     <div class="accordion-wrap">
               <div class="accordion-item">

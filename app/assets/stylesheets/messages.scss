@@ -116,3 +116,14 @@
 .bi-camera{
   padding: 10px;
 }
+
+.message_soushin .form-inline .form-group {
+  display: inline-block;
+  vertical-align: top; /* 必要に応じて調整 */
+  margin-right: 10px; /* 必要に応じて調整 */
+  text-align: center;
+}
+
+.message_soushin .form-inline .form-group:last-child {
+  margin-right: 0;
+}
