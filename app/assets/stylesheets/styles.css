@@ -88,7 +88,7 @@ nav {
 }
 
 .topimage {
-  width: 150px;
+  width: 120px;
 }
 
 .icon {
@@ -96,13 +96,13 @@ nav {
   display: flex;
 }
 
-.kotei {
+/*.kotei {
   position: -webkit-sticky;
   position: sticky;
   top: 0;
-  background-color: aliceblue;
   z-index: 90;
-}
+  height: 100px;
+}*/
 
 .language {
   text-align: right;
@@ -117,4 +117,17 @@ nav {
   color: white;
 }
 
+.navbar-nav li a{
+  width: 230px;
+  text-align: lefr;
+}
+
+.bg-light{
+  height: 110px;
+}
+/*言語アコーディオン*/
+#pattern1 {
+  background-color:#7fffd4;
+  width:300px;
+  }
 

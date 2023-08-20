@@ -13,3 +13,9 @@ Turbolinks.start()
 ActiveStorage.start() 
 
 import "./home"
+
+import 'bootstrap/dist/js/bootstrap'
+
+document.addEventListener('DOMContentLoaded', () => {
+  const myCarousel = new bootstrap.Carousel(document.getElementById('myCarousel'))
+})

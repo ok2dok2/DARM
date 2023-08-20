@@ -26,6 +26,7 @@ ko:
   Precautions when posting: '주의 사항'
   If you have more than one, separate them with [,]: '관련된 태그가 여러 개 있는 경우에는 [,]로 구분해주세요'
   Off meeting search: '오프라인 모임 검색'
+  to be decided: '시간 미정'
   #--------TOPIC-------#
   make topic: '토픽 만들기'
   topic_name: '토픽 이름'
@@ -54,3 +55,28 @@ ko:
     formats:
       default: "%Y/%m/%d %H:%M:%S"
       short: "%m/%d %H:%M"
+  #--------バリデーション-------#
+  activerecord:
+    models:
+      user: '유저'
+      topic: '토픽'
+      event: '모임 정보'
+    attributes:
+      user:
+        name: "닉네임"
+        age: "나이"
+        password: "비밀번호"
+        email: "이메일"
+        introduce: "자기소개"
+      topic:
+        name: '토픽 이름'
+        introduce: '토픽 소개글'
+        image: '로고'
+      post:
+        content: '댓글'
+      event:
+        name: '모임 이름'
+        place: '장소'
+        contact: '연락처'
+        introduce: '소개글'
+        

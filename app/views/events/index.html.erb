@@ -85,7 +85,11 @@
       <%= image_tag event.image.url, id:"image"%>
     <%end%>
     <p id="name"><%= event.name %></p>
-    <p id="time"><%= l event.start_at, format: :short %>~</p>
+    <% if event.start_at.present? %>
+      <p id="time"><%= l event.start_at, format: :short %>~</p>
+    <% else %>
+      <p id="time"><%= t('to be decided') %></p>
+    <% end %>
     <p><%= t('Comments from the organizer') %>:</p>
     <div class="introduce">
       <p id="introduce"><%= event.introduce%></p>
