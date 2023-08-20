@@ -7,7 +7,7 @@
   <%= stylesheet_link_tag 'styles', media: 'all', 'data-turbolinks-track': 'reload' %>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-  <div id="myCarousel" class="carousel slide mb-6" data-bs-ride="carousel" data-bs-theme="light" data-bs-interval="5000">
+  <div id="myCarousel" class="carousel slide mb-6" data-bs-ride="carousel" data-bs-theme="light" data-bs-interval="50000">
     <div class="carousel-indicators">
       <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
       <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
@@ -19,7 +19,7 @@
           <div class="carousel-caption text-start">
             <h1><%= t('meet new people') %></h1>
             <p class="opacity-75"><%= t('Connect with nice people')%></p>
-            <p><a class="btn btn-lg btn-primary" href="new_user_registration_path"><%= t("lets start") %></a></p>
+            <p><a class="btn btn-lg btn-primary custom-btn1" href="<%= new_user_registration_path %>"><%= t("lets start") %></a></p>
           </div>
         </div>
       </div>

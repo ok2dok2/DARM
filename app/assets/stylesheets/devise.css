@@ -1,7 +1,68 @@
 
-/*フォーム全体*/
+/*登録とログインのフォーム部分*/
 .sign_up_form{
-    width: 600px;
-    background-color: rgb(115, 115, 185);
+    width: 40%;
+    background-color: rgb(244, 244, 248);
     margin: auto;
+    text-align: center;
+    margin-bottom: 15px;
 }
+
+/*登録とログインのロゴと新規作成の文字部分*/
+.signup_logo{
+    width: 40%;
+    background-color: rgb(244, 244, 248);
+    margin: auto;
+    text-align: center;
+    margin-top: 15px;
+}
+
+.inform_logo{
+    width: 100px;
+    height: 100px;
+}
+/*ここまで*/
+
+/*編集のフォーム部分*/
+.edit_form{
+    width: 40%;
+    background-color: rgb(244, 244, 248);
+    margin: auto;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+/*編集のロゴと新規作成の文字部分*/
+.edit_logo{
+    width: 40%;
+    background-color: rgb(244, 244, 248);
+    margin: auto;
+    text-align: center;
+    margin-top: 15px;
+}
+
+/*似ている人入力フォーム*/
+.form-control_devise{
+    width: 30%;
+}
+
+/*自己紹介入力フォーム*/
+.form-area_devise{
+    width: 30%;
+}
+
+/*登録ボタン*/
+.btn-secondary{
+    width: 40%;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+/*登録ボタンの間の隙間*/
+.field{
+    margin-top: 15px;
+}
+
+
+
+

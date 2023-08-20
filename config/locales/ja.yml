@@ -82,6 +82,8 @@ ja:
         place: '開催地'
         contact: '連絡先'
         introduce: '主催者からのコメント'
+  errors:
+    not_found: "お探しのページは存在しません。"
     # errors:
     #   messages:
     #     invalid: "%{attribute}が正しくありません。"
