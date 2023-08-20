@@ -1,5 +1,5 @@
 require 'rails_helper'
-RSpec.describe User, type: :system do
+RSpec.describe Topic, type: :system do
   before do
     @user = FactoryBot.create(:user)
   end
