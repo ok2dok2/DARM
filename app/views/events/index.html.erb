@@ -26,50 +26,29 @@
         </button>
       </div>
       <div class="modal-body">
-        <table>
-        <%= form_with(model: @event) do |form| %>
-          <tr>
-            <td><%= form.label t('event_name') %></td>
-            <td><%= form.text_field :name %></td>
-          </tr>
-          <tr>
-            <td><%= form.label t('place') %></td>
-            <td><%= form.text_field :place %></td>
-          </tr>
-          <tr>
-            <td><%= form.label t('start_time') %></td>
-            <td><%= form.text_field :start_at %></td>
-          </tr>
-          <tr>
-            <td><%= form.label t('Comments from the organizer') %></td>
-            <td><%= form.text_area :introduce %></td>
-          </tr>
-          <tr>
-            <td><%= form.label t('contact') %></td>
-            <td><%= form.text_field :contact %></td>
-          </tr>
-          <tr>
-            <td><%= form.label t('Tag') %></td>
-            <td><%= form.text_field :tag_list, value: @event.tag_list.join(','), class: "form-control" %></td>
-          </tr>
-          <tr>
-          <td><%= form.label t('event_image') %></td>
-          <td>
-            <label for="image-input" class="event_upload">
-            <i class="bi bi-camera"></i>
-            </label>
-            <%= form.file_field :image, id: "image-input" %>
-            </td>
-          </tr>
-          <tr>
-            <td  id="event"><button type="submit" class="event_soushin">
-            <i class="bi bi-cursor-fill"></i><%= t('make event')%>
-            </button></td>
-          </tr>
-        <% end %>
-        </table>
-        <p>【<%=t('Precautions when posting')%>】</p>
-        <p><%= t('If you have more than one, separate them with [,]') %></p>
+        <div class="event_format">
+            <%= form_with(model: @event) do |form| %>
+                <p><%= form.text_field :name, placeholder:t('event_name')  %></p>
+                <p><%= form.text_field :place, placeholder: t('place')  %></p>
+                <p>
+                  <%= form.text_field :start_at, placeholder: t('start_time')%>
+                  <br>※YYYYMMDD HH:MM
+                </p>
+                <p><%= form.text_area :introduce, placeholder:t('Comments from the organizer'), class:"event_textarea"  %></p>
+                <p><%= form.text_field :contact, placeholder:t('contact') %></p>
+                <p><%= form.text_field :tag_list, value: @event.tag_list.join(','), class: "form-control_event", placeholder: t('Tag') %></p>
+                <p>
+                  <%=t('event_image') %>
+                  <label for="image-input" class="event_upload"><i class="bi bi-camera"></i></label>
+                  <%= form.file_field :image, id: "image-input" %>
+                </p>
+                <p id="event"><button type="submit" class="event_soushin">
+                  <i class="bi bi-cursor-fill"></i><%= t('make event')%>
+                </button></p>
+            <% end %>
+        </div>
+          <p>【<%=t('Precautions when posting')%>】</p>
+          <p><%= t('If you have more than one, separate them with [,]') %></p>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
