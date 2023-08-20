@@ -2,8 +2,13 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
+.custom-btn1{
+  width: 240px;
+} 
+
 .custom-btn{
-  width: 230px;
+  width: 240px;
+  margin-top: 25px;
 } 
 
 .accordion-wrap{
@@ -81,3 +86,5 @@ border-bottom: 0;
   margin: auto;
   text-align: center;
 }
+
+

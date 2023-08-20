@@ -1,9 +1,17 @@
-<h2> <%= t('devise.registrations.Edit') %></h2>
+<%= stylesheet_link_tag 'devise' %>
 
+<div class="sign_up">
+  <div class="signup_logo">
+    <h3><%= t('devise.registrations.Edit') %></h3>
+    <i class="bi bi-pencil" style="font-size: 60px;"></i>
+  </div>
+
+
+<div class="sign_up_form">
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
-    <div class="field">
+    <div class="field1">
     <%= f.label t('devise.registrations.Name') %><br />
     <%= f.text_field :name, autofocus: true %>
   </div>
@@ -23,22 +31,26 @@
   </div>
 
   <div class="field">
-    <%= f.label t('devise.registrations.Image') %><br />
-    <%= f.file_field :images, multiple: true %>
+    <%= f.label t('devise.registrations.Image') %>
+    <br><label for= "image-input" class= "event_upload">
+      <i class="bi bi-camera"></i>
+    <%= f.file_field :images, multiple: true, id: "image-input" %>
   </div>
 
   <div class="field">
     <%= f.label t('devise.registrations.Resemble')%><br />
-    <%= f.text_field :tag_list, value: @user.tag_list.join(','), class: "form-control" %>
+    <%= f.text_field :tag_list, value: @user.tag_list.join(','), class: "form-control_devise" %>
   </div>
 
   <div class="actions">
-    <%= button_tag t('devise.registrations.Update') %>
+    <%= button_tag class: 'btn btn-secondary' do %>
+    <%= t('devise.registrations.Update')%>
+  <% end %>
   </div>
 <% end %>
 
-<h3>Cancel my account</h3>
 
-<div>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete %></div>
+<div><%= button_to t('devise.registrations.cancel_my_account'), registration_path(resource_name), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete ,class:"btn btn-secondary" %></div>
 
-<%= link_to "Back", :back %>
+</div>
+</div>
