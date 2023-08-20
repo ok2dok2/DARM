@@ -28,6 +28,7 @@ ja:
   Precautions when posting: '注意事項'
   If you have more than one, separate them with [,]: '関連するタグが複数ある場合は【,】で区切ってください。'
   Off meeting search: 'オフ会検索'
+  to be decided: '時間未定'
   #--------TOPIC-------#
   make topic: 'トピックを作成する'
   topic_name: 'トピック名'
@@ -56,3 +57,33 @@ ja:
     formats:
       default: "%Y/%m/%d %H:%M:%S"
       short: "%m/%d %H:%M"
+  #--------バリデーション-------#
+  activerecord:
+    models:
+      user: 'ユーザー'
+      topic: 'トピック'
+      event: 'オフ会'
+    attributes:
+      user:
+        name: "ニックネーム"
+        age: "年齢"
+        password: "パスワード"
+        password_confirmation: "パスワード確認"
+        email: "メールアドレス"
+        introduce: "自己紹介"
+      topic:
+        name: 'トピック名'
+        introduce: 'トピック紹介文'
+        image: 'ロゴ'
+      post:
+        content: 'コメント'
+      event:
+        name: 'オフ会名'
+        place: '開催地'
+        contact: '連絡先'
+        introduce: '主催者からのコメント'
+    # errors:
+    #   messages:
+    #     invalid: "%{attribute}が正しくありません。"
+    #     blank: "%{attribute}を入力してください。"
+    #     too_short: "%{attribute}は%{count}文字以上で入力してください"

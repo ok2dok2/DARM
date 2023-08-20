@@ -1,3 +1,4 @@
+<div class="post_form">
 <%= form_with(model: [topic, post], local: false) do |form| %>
   <% if post.errors.any? %>
     <div id="error_explanation">
@@ -12,8 +13,14 @@
   <table>
     <tr>
     <td class="post__content"><%= form.text_area :content %><td>
-    <td><%= form.file_field :image %><td>
-    <td><%= form.submit %></td>
+    <td><label for="image-input" class="upload_post">
+    <i class="bi bi-camera"></i>
+    </label></td>
+    <%= form.file_field :image, id: "image-input" %>
+    <td><button type="submit" class="soushin">
+      <i class="bi bi-cursor-fill"></i>
+      </button></td>
   </div>
   </table>
 <% end %>
+</div>

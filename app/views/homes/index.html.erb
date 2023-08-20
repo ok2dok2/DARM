@@ -7,21 +7,51 @@
   <%= stylesheet_link_tag 'styles', media: 'all', 'data-turbolinks-track': 'reload' %>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-<%# home画面　%>
-<div class="container-fluid hero" id="hero">
-  <div id="background-image"></div>
-  <div class="row">
-    <div class="col-lg-6 offset-lg-3 text-center">
-      <h1 class="display-4"><%= t('meet new people') %></h1>
-      <p class="lead"><%= t('Connect with nice people')%> </p>
-      <p><%= link_to t("lets start"), new_user_registration_path, class: "btn btn-primary btn-lg custom-btn", role: "button" %></p>
-      <p><%= link_to t("Log in"), new_user_session_path, class: "btn btn-primary btn-lg custom-btn", role: "button" %></p>
-      <p><%= link_to t("Log in guest"), users_guest_sign_in_path, method: :post, class: "btn btn-primary btn-lg custom-btn", role: "button" %></p>
-      <p><%= link_to t("Log in admin guest"), users_guest_admin_sign_in_path, method: :post, class: "btn btn-primary btn-lg custom-btn", role: "button" %></p>
-    <%# ここからアコーディオン　%>
+  <div id="myCarousel" class="carousel slide mb-6" data-bs-ride="carousel" data-bs-theme="light" data-bs-interval="5000">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+      <%= image_tag "image1.webp", alt: "Image 1", class:"image1" %>
+        <div class="container">
+          <div class="carousel-caption text-start">
+            <h1><%= t('meet new people') %></h1>
+            <p class="opacity-75"><%= t('Connect with nice people')%></p>
+            <p><a class="btn btn-lg btn-primary" href="new_user_registration_path"><%= t("lets start") %></a></p>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <%= image_tag "pazzle.png", alt: "Image 1", class:"image1" %>
+        
+        <div class="container">
+          <div class="carousel-caption">
+            <%#<h1>Another example headline.</h1>%>
+            <p><%= link_to t("Log in"), new_user_session_path, class: "btn btn-primary btn-lg custom-btn", role: "button" %></p>
+            <p><%= link_to t("Log in guest"), users_guest_sign_in_path, method: :post, class: "btn btn-primary btn-lg custom-btn", role: "button" %></p>
+            <p><%= link_to t("Log in admin guest"), users_guest_admin_sign_in_path, method: :post, class: "btn btn-primary btn-lg custom-btn", role: "button" %></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+
+
+
+  <div class="about_darm">
     <div class="accordion-wrap">
               <div class="accordion-item">
-                <p class="accordion-header"> About 닮-DARM-!? <i class="fa fa-angle-down" aria-hidden="true"></i> </p>
+                <p class="accordion-header"> About 닮-DARM-!?<i class="bi bi-hand-index"></i> <i class="fa fa-angle-down" aria-hidden="true"></i> </p>
               </div>
               <div class="accordion-text">
                 <p class="accordion detail 1">TOPICS<p>
@@ -36,14 +66,9 @@
                 <p>
               </div>
     </div>
-
-
-    </div>
   </div>
-</div>
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-</body>
 </html>
