@@ -9,7 +9,7 @@ RSpec.describe User, type: :system do
       fill_in 'user[password]', with: 'pass'
       fill_in 'user[password_confirmation]', with: 'pass'
       fill_in 'user[introduce]', with: 'testだよ～!'
-      #attach_file('user[images][]', Rails.root.join('spec/fixtures/user22.jpg'))
+      attach_file('user[images][]', Rails.root.join('spec/fixtures/images/user22.jpg'))
       fill_in 'user[tag_list]', with: 'いない'
       click_button 'アカウント作成'
       expect(page).to have_content "ログイン"

@@ -12,9 +12,15 @@ User.create(
   age: '21',
   password: 'passpass',
   introduce: 'ユーザー１です。',
-  images: [File.open("db/images/user1.webp")],
-  tag_list: 'なにわ男子,道枝駿佑'
+  images: [
+    File.open("db/images/user1.webp"),
+    File.open("db/images/user1_2.jpg")
+  ],
+  tag_list: 'なにわ男子,道枝駿佑',
+  latitude: 34.70260885820145, 
+  longitude: 135.4959184103111
 )
+
 
 User.create(
   name: 'user2',
@@ -22,8 +28,13 @@ User.create(
   age: '26',
   password: 'passpass',
   introduce: 'ユーザー2です。',
-  images: [File.open("db/images/user2.jpg")],
-  tag_list: 'なにわ男子,大橋和也'
+  images: [
+    File.open("db/images/user2.jpg"),
+    File.open("db/images/user2_2.jpg"),
+    File.open("db/images/user2_3.jpg")
+  ],
+  tag_list: 'なにわ男子,大橋和也',
+  admin: true
 )
 
 User.create(
@@ -32,8 +43,14 @@ User.create(
   age: '30',
   password: 'passpass',
   introduce: '유저3입니다',
-  images: [File.open("db/images/user3.jpeg")],
-  tag_list: 'Apink,bomi,윤보미'
+  images: [
+    File.open("db/images/user3.jpeg"),
+    File.open("db/images/user3_2.jpg"),
+    File.open("db/images/user3_3.png")
+  ],
+  tag_list: 'Apink,bomi,윤보미',
+  latitude: 37.25077681471055,
+  longitude: 126.97793844108648
 )
 
 User.create(
@@ -43,7 +60,9 @@ User.create(
   password: 'passpass',
   introduce: '유저4입니다.',
   images: [File.open("db/images/user4.jpg")],
-  tag_list: 'Apink,에이핑크,박초롱'
+  tag_list: 'Apink,에이핑크,박초롱',
+  latitude: 37.49819308226503,
+  longitude:  127.02760101278844
 )
 
 User.create(
@@ -53,7 +72,9 @@ User.create(
   password: 'passpass',
   introduce: '유저5입니다.',
   images: [File.open("db/images/user5.jpg")],
-  tag_list: '인피니트,김명수,엘'
+  tag_list: '인피니트,김명수,엘',
+  latitude: 35.700961439979515,  
+  longitude: 139.7000114592869
 )
 
 Event.create(

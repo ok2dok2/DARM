@@ -17,7 +17,7 @@
         <td><%= render 'users/tag_list', tag_list: user.tag_list %>
         <p id="user_moji"><%= t('maybe similar') %>!?</p></td>
         <% unless user.id == current_user.id %>
-        <td><%= render 'follow_form', user: user %></td>
+        <td><%= render 'follow_form', user: user, i: i %></td>
         <% if current_user.followers.exists?(user.id)%>
         <td><%= link_to conversations_path(sender_id: current_user.id, recipient_id: user.id),data: {"turbolinks" => false}, method: :post do %>
           <i class="bi bi-envelope-heart"></i></td>
