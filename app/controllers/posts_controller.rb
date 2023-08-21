@@ -5,6 +5,7 @@ class PostsController < ApplicationController
     @post = @topic.posts.build(post_params)
     @post.user_id = current_user.id
 
+
     respond_to do |format|
       if @post.save
         format.js { render 'index' }

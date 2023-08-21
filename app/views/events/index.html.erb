@@ -75,7 +75,7 @@
     </div>
     <p id="place">
       <i class="bi bi-pin-map-fill"></i>&ensp;
-      <a href="http://maps.google.com/maps?q=<%= (event.place) %>"><%= event.place %></a>
+      <a href="http://maps.google.com/maps?q=<%= (event.place) %> "target="_blank" rel="noopener noreferrer"><%= event.place %></a>
     </p>
     <p id="contact"><i class="bi bi-wechat"></i>&ensp;<%= event.contact%></p>
     <p><%= render 'events/tag_list', tag_list: event.tag_list %></p>

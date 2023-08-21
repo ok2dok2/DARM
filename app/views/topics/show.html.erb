@@ -1,6 +1,7 @@
 <%= render partial: 'shared/error_messages', locals: { object: @post } %>
   
   <div class="topic_all">
+    <%= @topic.name %>
     <div class="ytb">
   <% if @topic.youtube.present? %>
   <iframe src="https://www.youtube.com/embed/<%= @topic.youtube %>"

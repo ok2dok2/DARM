@@ -1,3 +1,7 @@
+<script src="https://apis.google.com/js/api.js"></script>
+<script>
+  var GOOGLE_TRANSLATION_API_KEY = '<%= ENV['GOOGLE_TRANSLATION_API_KEY'] %>';
+</script>
 <%= render partial: 'shared/error_messages', locals: { object: @message } %>
 <html class="h-100">
     <body class="h-100">
@@ -36,7 +40,10 @@
               <div class="item left">
                 <%= image_tag message.user.first_image, class: "talk_icon" %>
                 <div id="left">
-                <%= message.body %>
+                  <% if message.body.present? %>
+                    <div id="message_body"><%= message.body %></div>
+                    <div class="translation-result" id="translation_result_<%= message.id %>"></div>
+                  <%end%>
                 </div>
                 <% if message.image.present? %>
                   <%= image_tag message.image.url, class: "dmimage" %>
@@ -53,6 +60,7 @@
     <% end %>
   <% end %>
 </div>
+
 
 <div class="message_soushin">
   <div class="form-inline">
