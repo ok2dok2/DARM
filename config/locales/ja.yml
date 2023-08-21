@@ -49,6 +49,7 @@ ja:
   This is the user list screen You can search for users you like by clicking on the tags displayed on the screen or by entering their name in the search bar: 'ユーザーの一覧画面です。画面に表示されているタグのクリックや、検索バーに名前を入力することで、自分の推しにしているユーザーの検索が行えます。'
   #--------MESSAGE-------#
   translation: '翻訳'
+  do translation: '翻訳する'
   japanese: '日本語'
   korean: '韓国語'
   before translation: '翻訳前'

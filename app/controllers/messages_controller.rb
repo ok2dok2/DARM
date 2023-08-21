@@ -44,6 +44,7 @@ class MessagesController < ApplicationController
     end
   end
 
+  #翻訳ボックスのアクション
   def translate
     text_to_translate = params[:text]
     source_language = params[:source_language]
@@ -53,12 +54,19 @@ class MessagesController < ApplicationController
     render json: { translation: translation }
   end
 
+  #自動翻訳のアクション
+  def translate_auto
+    translated_text = translate_message(params[:text])
+    render json: { translation: translated_text }
+  end
+
   private
 
   def message_params
     params.require(:message).permit(:body, :user_id, :image)
   end
 
+  #翻訳ボックスのアクション
   def translate_text(text, source_language, target_language)
     require "google/cloud/translate/v2"
     api_key = ENV['GOOGLE_TRANSLATION_API_KEY']
@@ -67,5 +75,25 @@ class MessagesController < ApplicationController
     result = translator.translate(text, from: source_language, to: target_language)
   
     result.text # 翻訳結果のテキストを返す
+  end
+
+  #自動翻訳のアクション(APIを使って結果を返す) 
+  def translate_message(text)
+    require "google/cloud/translate/v2"
+    api_key = ENV['GOOGLE_TRANSLATION_API_KEY']
+    translate = Google::Cloud::Translate::V2.new(key: api_key)
+    target_language = message_is_japanese?(text) ? "ko" : "ja"
+    translation = translate.translate(
+      text,
+      to: target_language # 適切なターゲット言語を設定
+    )
+    translation.text
+  end
+
+
+  #自動翻訳のアクション(日本語⇔韓国語を自動認識させるためのアクション) 
+  def message_is_japanese?(text)
+    japanese_characters = /[\p{Hiragana}\p{Katakana}\p{Han}ー]/
+    text =~ japanese_characters
   end
 end

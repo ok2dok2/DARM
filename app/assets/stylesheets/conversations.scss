@@ -12,6 +12,7 @@
 
 .conversation_message{
   color: gray;
+  width: 100px;
 }
 
 .convesation_table tr{
@@ -39,4 +40,10 @@
 #target_user_introduce{
   width: 500px;
   text-align:right;
+}
+
+.reply{
+  margin-left: 30px;
+  width: 170px;
+  text-align: center;
 }
