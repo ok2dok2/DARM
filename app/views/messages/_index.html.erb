@@ -4,7 +4,13 @@
       <div class="item">
         <div class="content">
         <div class="item <%= message.user == current_user ? 'right' : 'left' %>">
-          <div class="header"><%= l DateTime.strptime(message.message_time, "%m/%d/%y at %I:%M %p"), format: :short %><%= message.read ? '既読' : '未読' %></div>
+          <div class="header">
+            <%= l DateTime.strptime(message.message_time, "%m/%d/%y at %I:%M %p"), format: :short %>
+            <% if message.user == current_user %>
+                <%= message.read ? '既読' : '未読' %>
+                <% else %>
+              <% end %>
+          </div>
           <div class="list">
             <% if message.user == current_user %>
               <div class="item right">
@@ -19,7 +25,13 @@
               <div class="item left">
                 <%= image_tag message.user.first_image, class: "talk_icon" %>
                 <div id="left">
-                <%= message.body %>
+                  <% if message.body.present? %>
+                    <div id="message_body"><%= message.body %></div>
+                    <!-- 翻訳リンク -->
+                    <a href="#" class="translate-link" data-message-id="<%= message.id %>", data-conversation-id="<%= message.conversation.id %>", data-original-text="<%= message.body %>">翻訳する</a>
+                    <!-- 翻訳結果表示エリア -->
+                    <div class="translation-result_auto" id="translation_result_auto_<%= message.id %>"></div>
+                  <%end%>
                 </div>
                 <% if message.image.present? %>
                   <%= image_tag message.image.url, class: "dmimage" %>
@@ -36,8 +48,3 @@
     <% end %>
   <% end %>
 </div>
-
-  <script>
-    var messagesArea = document.getElementById("messages_area");
-    messagesArea.scrollTop = messagesArea.scrollHeight;
-  </script>

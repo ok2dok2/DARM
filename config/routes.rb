@@ -22,6 +22,7 @@ Rails.application.routes.draw do
   resources :conversations do
     resources :messages do
       post "/translate", to: "messages#translate"
+      post "/translate/auto", to: "messages#translate_auto"
     end
   end
   root to: "homes#index"
