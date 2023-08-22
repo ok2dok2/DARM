@@ -1,4 +1,12 @@
 ko:
+  activerecord:
+    models:
+      user: '유저'
+      post: 댓글
+      relationship: 팔로우
+      message: 메시지
+      event: 오프라인 모임
+      conversation: 메시지 박스 
   admin:
     js:
       true: 참

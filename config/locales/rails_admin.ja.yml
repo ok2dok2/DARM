@@ -1,4 +1,12 @@
 ja:
+  activerecord:
+    models:
+      user: 'ユーザー'
+      post: 投稿
+      relationship: フォロー
+      message: メッセージ
+      event: オフ会
+      conversation: メッセージボックス 
   admin:
     js:
       true: True

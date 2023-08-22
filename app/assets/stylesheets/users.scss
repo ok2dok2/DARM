@@ -134,8 +134,9 @@
 
 .flex-container {
   width: 800px;
-
+  height: 100vh;
   margin:auto;
+  margin-top: 60px;
 }
 
 #user_image_td{
@@ -167,3 +168,16 @@
   width: 800px;
 }
 /*ここまで*/
+
+.edit_all{
+  margin-top: 100px;
+  margin-bottom: 30px;
+}
+
+.mytab{
+  margin-bottom: 100px;
+}
+
+.location_coment{
+  font-size: 13px;
+}
