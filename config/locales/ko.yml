@@ -27,6 +27,9 @@ ko:
   If you have more than one, separate them with [,]: '관련된 태그가 여러 개 있는 경우에는 [,]로 구분해주세요'
   Off meeting search: '오프라인 모임 검색'
   to be decided: '시간 미정'
+  profile_edit: 프로필 편집
+  Get location information: 위치정보 갱신
+  By acquiring location information, you will be able to see the location of other users: ※다른 유저와 님의 거리가 표시됩니다.
   #--------TOPIC-------#
   make topic: '토픽 만들기'
   topic_name: '토픽 이름'

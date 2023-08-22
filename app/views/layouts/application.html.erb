@@ -13,32 +13,41 @@
 
   <body>
   <div class="kotei">
+    <div class="notice">
     <% if notice %>
       <p class="alert alert-notice"><%= notice %></p>
     <% end %>
     <% if alert %>
       <p class="alert alert-error"><%= alert %></p>
     <% end %>
+  </div>
 
     <%= stylesheet_link_tag 'styles', media: 'all', 'data-turbolinks-track': 'reload' %>
       <div class="login_language">
-        <% if user_signed_in? %>
-          <%= link_to t("logout"), destroy_user_session_path, method: :delete %>
-          <%= link_to t("mypage"), user_path(current_user.id), data: {"turbolinks" => false} %>
-        <% else %>
-          <%= link_to t("sign up"), new_user_registration_path %>
-          <%= link_to t("login"), new_user_session_path %>
-        <% end %>
-        <div class= "language">
-          <details>
-            <summary>language</summary>
-              <ul>
-                <li style="list-style: none;"><%= link_to '한국어', change_locale_path(:ko), data: {turbolinks: "false"} %></li>
-                <li style="list-style: none;"><%= link_to '日本語', change_locale_path(:ja), data: {turbolinks: "false"} %></li>
-              </ul>
-          </details>
-      </div>
+  <div class="user-links">
+    <% if user_signed_in? %>
+      <%= link_to t("logout"), destroy_user_session_path, method: :delete %>
+      <%= link_to t("mypage"), user_path(current_user.id), data: { "turbolinks" => false } %>
+    <% else %>
+      <%= link_to t("sign up"), new_user_registration_path %>
+      <%= link_to t("login"), new_user_session_path %>
+    <% end %>
+  </div>
 
+  <div class="language">
+    <details>
+      <summary>language</summary>
+      <ul>
+        <li style="list-style: none;">
+          <%= link_to '한국어', change_locale_path(:ko), data: { turbolinks: "false" } %>
+        </li>
+        <li style="list-style: none;">
+          <%= link_to '日本語', change_locale_path(:ja), data: { turbolinks: "false" } %>
+        </li>
+      </ul>
+    </details>
+  </div>
+</div>
 
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="collapse navbar-collapse" id="navbarNav">
@@ -62,10 +71,13 @@
               <a class="nav-link" href="<%= conversations_path %>"><br>MESSAGES
               <br><i class="bi bi-chat-quote"></i></a>
             </li>
+            <% if current_user&.admin %>
             <li class="nav-item">
               <a class="nav-link" href="<%= rails_admin_path %>"><br>ADMIN
               <br><i class="bi bi-tools"></i></a>
             </li>
+            <% end %>
+
           </ul>
         </div>
       </nav>

@@ -34,12 +34,15 @@
 .topics{
   width: 700px;
   margin: auto;
+  height: 100vh;
+  margin-top: 10px;
 }
 
 .topic_menu_bar_button{
   text-align: right;
   width: 700px;
   margin: auto;
+  margin-top: 60px
 }
 
 .topic_all{
@@ -47,6 +50,7 @@
   margin: auto;
   text-align: center;
   background-color: rgb(221, 206, 206);
+  height: 100vh;
 }
 
 .ytb{

@@ -19,7 +19,9 @@
           <div class="carousel-caption text-start">
             <h1><%= t('meet new people') %></h1>
             <p class="opacity-75"><%= t('Connect with nice people')%></p>
+            <% unless current_user.present? %>
             <p><a class="btn btn-lg btn-primary custom-btn1" href="<%= new_user_registration_path %>"><%= t("lets start") %></a></p>
+            <% end %>
           </div>
         </div>
       </div>
@@ -29,9 +31,11 @@
         <div class="container">
           <div class="carousel-caption">
             <%#<h1>Another example headline.</h1>%>
+            <% unless current_user.present? %>
             <p><%= link_to t("Log in"), new_user_session_path, class: "btn btn-primary btn-lg custom-btn", role: "button" %></p>
             <p><%= link_to t("Log in guest"), users_guest_sign_in_path, method: :post, class: "btn btn-primary btn-lg custom-btn", role: "button" %></p>
             <p><%= link_to t("Log in admin guest"), users_guest_admin_sign_in_path, method: :post, class: "btn btn-primary btn-lg custom-btn", role: "button" %></p>
+          <% end %>
           </div>
         </div>
       </div>

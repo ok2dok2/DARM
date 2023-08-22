@@ -15,6 +15,9 @@ ja:
   Logged in as admin guest user: '管理者ゲストでログインしました'
   Guest user cannot be deleted: 'ゲストユーザーは削除できません'
   Would you like to reply?: '返信しませんか？'
+  profile_edit: プロフィール編集
+  Get location information: 位置情報更新
+  By acquiring location information, you will be able to see the location of other users: ※他ユーザーとの距離が確認できます。
   #--------EVENT-------#
   don't maked event: 'イベントを作成できませんでした'
   Comments from the organizer: '  主催者からのコメント' 

@@ -7,7 +7,7 @@
 </head>
 
 <body>
-<table>
+<table class="edit_all">
   <tr>
     <% if @user.images.present? %>
       <td><%= image_tag @user.first_image, class:"mypage_user_icon" %></td>
@@ -21,8 +21,9 @@
   </tr>
   <tr>
     <% if @user.id == current_user.id %>
-    <td id="btn"><%= button_to 'プロフィール編集', edit_user_registration_path, method: :get %>
-    <button id="getLocationButton">距離を公開する</button></td>
+    <td id="btn"><%= button_to t('profile_edit'), edit_user_registration_path, method: :get %>
+    <button id="getLocationButton"><%=t('Get location information')%></button></td>
+    <td class="location_coment"><br><%= t('By acquiring location information, you will be able to see the location of other users')%></td>
     <%end%>
   </tr>
 </table>
