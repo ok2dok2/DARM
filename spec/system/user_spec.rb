@@ -44,5 +44,15 @@ RSpec.describe User, type: :system do
       find('.user_button').click
       expect(page).to have_content "INFINITE"
     end
+
+    it '一般ユーザーが管理者ページに入れないようにする' do
+      FactoryBot.create(:user)
+      visit new_user_session_path
+      fill_in 'user[email]', with: 'user22@gmail.com'
+      fill_in 'user[password]', with: 'passpass'
+      click_button 'ログイン'
+      visit rails_admin_path
+      expect(page).not_to have_content "サイト管理"
+    end
   end
 end
