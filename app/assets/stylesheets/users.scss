@@ -94,13 +94,13 @@
   width: 300px;
   position: relative;
   display: inline-block;
-  margin: 1.5em 0 1.5em 15px;
+  vertical-align: center;
   padding: 7px 10px;
   min-width: 120px;
   max-width: 100%;
   color: #555;
   font-size: 16px;
-  background: 	#FFE4B5;
+  background:         #FFE4B5;
   box-sizing: border-box;
   border-radius: 12px;
 }
@@ -180,4 +180,10 @@
 
 .location_coment{
   font-size: 13px;
+}
+
+.index_table{
+  padding-bottom: 500px;
+  width: 800px;
+  height: 100vh;
 }
