@@ -28,7 +28,7 @@
                   <% if message.body.present? %>
                     <div id="message_body"><%= message.body %></div>
                     <!-- 翻訳リンク -->
-                    <a href="#" class="translate-link" data-message-id="<%= message.id %>", data-conversation-id="<%= message.conversation.id %>", data-original-text="<%= message.body %>">翻訳する</a>
+                    <a href="" class="translate-link" data-message-id="<%= message.id %>", data-conversation-id="<%= message.conversation.id %>", data-original-text="<%= message.body %>">翻訳する</a>
                     <!-- 翻訳結果表示エリア -->
                     <div class="translation-result_auto" id="translation_result_auto_<%= message.id %>"></div>
                   <%end%>
