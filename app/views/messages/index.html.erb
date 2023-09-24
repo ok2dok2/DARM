@@ -172,7 +172,7 @@ function translateText(text, messageId, conversationId) {
     'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
   },
     success: function (data) {
-      console.log(data); // dataは受信したデータオブジェクトです
+      console.log(data); 
       $('#translation_result_auto_' + messageId).text(data.translation);
     }
   });

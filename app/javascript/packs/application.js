@@ -19,3 +19,9 @@ import 'bootstrap/dist/js/bootstrap'
 document.addEventListener('DOMContentLoaded', () => {
   const myCarousel = new bootstrap.Carousel(document.getElementById('myCarousel'))
 })
+
+$(function(){
+  setTimeout(function(){
+    $('.alert').hide();
+  }, 2500);
+});

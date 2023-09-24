@@ -48,6 +48,14 @@ ko:
   You can directly approach users you care about or users you want to be friends with: '궁금하신 유저나 친구가 되고 싶은 유저에게 메시지를 보낼 수 있습니다.'
   You must follow each other in order to send messages: '※메미지를 할려면 맞팔 필수'
   This is the user list screen You can search for users you like by clicking on the tags displayed on the screen or by entering their name in the search bar: '유저 일람입니다. 표시되는 테그를 누르거나 검색창에 이름을 입력해서 최애와 비슷하게 생긴 유저를 검색할 수 있습니다.'
+  Click the translation link to automatically translate your message: '번역하기를 누르면 메시지가 자동 번역됩니다.'
+  The timeline (tweets) of the users you follow will now be displayed: '팔로우한 유저의 타임라인을 볼 수 있습니다.'
+  detail: '자세히 보기'
+  Other features: '다른 기능'
+  details: '자세히 보기'
+  This is an exchange app for otakus that allows you to find users similar to your favorites: '최애와 닮은 유저를 찾을 수 있는 일본과 한국의 덕후를 위한 교류 앱입니다.'
+  It supports automatic translation, so dont worry even if you dont understand the language: '자동 번역으로 언어의 벽을 없앨 수 있습니다.'
+  Find someone with the same hobbies!!!: '같은 취미를 가진 최애를 찾아요!!!'
   #--------MESSAGE-------#
   translation: '번역'
   do translation: '번역하기'
@@ -59,6 +67,10 @@ ko:
     formats:
       default: "%Y/%m/%d %H:%M:%S"
       short: "%m/%d %H:%M"
+  #--------TIMES-------#
+  comment: '문구 입력'
+  image: '이미지'
+  tweet: '한마디'
   #--------バリデーション-------#
   activerecord:
     models:
@@ -72,6 +84,7 @@ ko:
         password: "비밀번호"
         email: "이메일"
         introduce: "자기소개"
+        word: 한마디
       topic:
         name: '토픽 이름'
         introduce: '토픽 소개글'

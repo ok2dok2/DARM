@@ -34,6 +34,10 @@
   </div>
 
   <div class="field">
+    <%= f.text_field :word, autofocus: true, placeholder: t('devise.registrations.Word')  %>
+  </div>
+
+  <div class="field">
     <%= f.text_area :introduce, autofocus: true, placeholder: t('devise.registrations.Introduce'), class: "form-area_devise" %>
   </div>
 

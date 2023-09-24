@@ -429,6 +429,7 @@ DEPENDENCIES
   google-cloud-translate
   jbuilder (~> 2.7)
   jquery-rails
+  kaminari
   launchy
   listen (~> 3.3)
   mini_magick

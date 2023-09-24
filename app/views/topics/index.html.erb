@@ -1,11 +1,11 @@
 <div class="error_message">
-<%= render partial: 'shared/error_messages', locals: { object: @topic } %>
+  <%= render partial: 'shared/error_messages', locals: { object: @topic } %>
 </div>
 
 <div class="topic_menu_bar_button">
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal1">
-  <%= t('make topic') %>
-</button>
+  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal1">
+    <%= t('make topic') %>
+  </button>
 </div>
 <div class="modal fade" id="modal1" tabindex="-1"
       role="dialog" aria-labelledby="label1" aria-hidden="true">
@@ -20,10 +20,7 @@
       <div class="modal-body">
         <div class="topic_form">
         <%= form_with(model: @topic) do |form| %>
-
             <p><%= form.text_field :name, placeholder:t('topic_name') %></p>
-
-          
             <p><%= form.text_field :introduce, placeholder: t('topic_introduce') %></p>
             <p>
               <%=  t('topic_logo') %>
@@ -33,7 +30,6 @@
               <%= form.file_field :image, id: "image-input" %>
             </p>
             <p><%= form.text_field :youtube, placeholder: "youtube_url" %></p>
-
               <p id="topic"><button type="submit" class="topic_soushin" id="create_topic_button">
               <i class="bi bi-cursor-fill"></i><%= t('make topic')%>
               </button></p>
@@ -50,25 +46,27 @@
   </div>
 </div>
 
-
 <div class="topics">
-  <table class="ichiran">
+<div class="topics-container">
   <% @topics.each do |topic| %>
-    <tr>
+<div class="topic">
       <% if topic.image.present?%>
-      <td><%= image_tag topic.image.url, class:"topic_icon" %>
-      <br><%= topic.posts.count%>posts</td>
+      <%= link_to topic_path(topic.id), data: {"turbolinks" => false} do %>
+      <%= image_tag topic.image.url, class:"topic_icon" %>
       <%end%>
-      <td id="bk"><%= link_to topic.name, topic_path(topic.id), data: {"turbolinks" => false} %>
+      <br><%= topic.posts.count%>posts
+      <%end%>
+      <p id="bk1"><%= link_to topic.name, topic_path(topic.id), data: {"turbolinks" => false} %>
       <% if topic.introduce.present? %>
-      <br><%= topic.introduce %></td>
+      <br><%= topic.introduce %>
       <% end %>
-      
-
-    </tr>
+    </p>
+    </div>
   <% end %>
-  </table>
+  </div>
 </div>
+</div>
+
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
