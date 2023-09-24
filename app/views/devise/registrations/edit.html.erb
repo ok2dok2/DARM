@@ -25,6 +25,10 @@
     <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
   <% end %>
 
+  <div class="field">
+    <%= f.text_field :word, autofocus: true, placeholder: t('devise.registrations.Word')  %>
+  </div>
+
     <div class="field">
     <%= f.label t('devise.registrations.Introduce') %><br />
     <%= f.text_area :introduce, autofocus: true, placeholder: t('devise.registrations.Introduce') %>

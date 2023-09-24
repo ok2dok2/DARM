@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_08_15_082904) do
+ActiveRecord::Schema.define(version: 2023_08_28_054610) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -102,6 +102,15 @@ ActiveRecord::Schema.define(version: 2023_08_15_082904) do
     t.index ["name"], name: "index_tags_on_name", unique: true
   end
 
+  create_table "timelines", force: :cascade do |t|
+    t.text "content"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.json "images"
+    t.index ["user_id"], name: "index_timelines_on_user_id"
+  end
+
   create_table "topics", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
@@ -133,6 +142,7 @@ ActiveRecord::Schema.define(version: 2023_08_15_082904) do
     t.json "images"
     t.float "latitude"
     t.float "longitude"
+    t.string "word"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
@@ -143,5 +153,6 @@ ActiveRecord::Schema.define(version: 2023_08_15_082904) do
   add_foreign_key "posts", "topics"
   add_foreign_key "posts", "users"
   add_foreign_key "taggings", "tags"
+  add_foreign_key "timelines", "users"
   add_foreign_key "topics", "users"
 end

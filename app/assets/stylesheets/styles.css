@@ -125,20 +125,23 @@ nav {
 
 .footer {
   background-color: dimgray;
-  padding: 10px 0;
+  padding: 5px 0;
   position: fixed;
   bottom: 0;
   left: 0;
   width: 100%;
   color: #fff;
+  z-index: 100;
+  height: 30px;
 }
 .footer p {
   margin-bottom: 0;
   color: white;
+  font-size: 14px;
 }
 
 .navbar-nav li a{
-  width: 230px;
+  width: 200px;
   text-align: lefr;
 }
 
@@ -151,10 +154,47 @@ nav {
   width:300px;
   }
 
-  .notice{
+  /*.notice{
     background-color: white;
-  }
+  }*/
 
   .alert{
-    background-color: white;
+    background-color: rgb(238, 74, 74);
+    color: white
+  }
+
+
+  
+  .under_paginate{
+    width: 100%;
+    margin: auto;
+  }
+
+  .pagination{
+    text-align: center;
+    display: flex;
+    background-color: beige;
+    justify-content: center;
+  }
+
+  .pagination span{
+    text-align: center;
+    width: 70px;
+    font-size: 17px;
+  }
+
+  .pagination a{
+    color:black;
+    width: 100%;
+    height: 100%;
+  }
+
+  .current{
+  font-weight: bold;
+  color: #84b8eb;
+  }
+
+  .login{
+    color: rgb(119, 112, 112);
+    margin-right: 10px;
   }

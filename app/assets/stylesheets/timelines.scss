@@ -1,0 +1,57 @@
+.mySlides {
+  display: none;
+  /* 画像を正方形にする */
+  width: 500px;
+  height: 500px;
+  position: relative;
+}
+
+.mySlides img {
+  /* 画像を正方形の中央に配置する */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+}
+
+/* .active クラスのスタイルを追加 */
+.mySlides.active {
+  display: block;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+}
+
+.timeline_user_icon {
+  width:70px;
+  height:70px;
+  border-radius:50%;
+  object-fit: cover;
+  object-position:54% 36%;
+}
+
+.hr_timeline {
+  border-top: 2px dotted rgb(180, 178, 178);
+}
+
+.timeline_all{
+  width: 35%;
+  margin: auto;
+  margin-top: 80px;
+  margin-bottom: 80px;
+}
+
+.times_button{
+  width: 100%;
+  margin-top: 80px;
+  text-align: right;
+}
+
+.timeline_form{
+  text-align: center;
+}
+
+
+

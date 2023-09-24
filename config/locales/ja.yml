@@ -50,6 +50,15 @@ ja:
   You can directly approach users you care about or users you want to be friends with: '気になるユーザーやお友達になりたいユーザーに直接アプローチが可能です。'
   You must follow each other in order to send messages: '※メッセージを行うには相互フォローになる必要があります。'
   This is the user list screen You can search for users you like by clicking on the tags displayed on the screen or by entering their name in the search bar: 'ユーザーの一覧画面です。画面に表示されているタグのクリックや、検索バーに名前を入力することで、自分の推しにしているユーザーの検索が行えます。'
+  Click the translation link to automatically translate your message: '「翻訳する」をクリックするとメッセージが自動翻訳されます。'
+  Start the translator and easily send the message you want to send: '翻訳機を起動させて自分が送りたいメッセージをらくらく送信'
+  The timeline (tweets) of the users you follow will now be displayed: 'フォローしたユーザーのタイムライン(つぶやき)が表示されるようになります。'
+  detail: '詳細'
+  Other features: 'その他の機能'
+  details: '詳細はこちら'
+  This is an exchange app for otakus that allows you to find users similar to your favorites: '推しに似ているユーザーを見つけることのできる、日本と韓国のヲタクの為の交流アプリです。'
+  It supports automatic translation, so dont worry even if you dont understand the language: '自動翻訳に対応しているので言葉が分からなくても安心'
+  Find someone with the same hobbies!!!: '同じ趣味を持つ推しを見つけましょう!!!'
   #--------MESSAGE-------#
   translation: '翻訳'
   do translation: '翻訳する'
@@ -61,6 +70,10 @@ ja:
     formats:
       default: "%Y/%m/%d %H:%M:%S"
       short: "%m/%d %H:%M"
+  #--------TIMES-------#
+  comment: 'コメント'
+  image: 'イメージ'
+  tweet: 'つぶやく'
   #--------バリデーション-------#
   activerecord:
     models:
@@ -75,6 +88,7 @@ ja:
         password_confirmation: "パスワード確認"
         email: "メールアドレス"
         introduce: "自己紹介"
+        word: 一言
       topic:
         name: 'トピック名'
         introduce: 'トピック紹介文'

@@ -52,25 +52,65 @@
 
 
 
-  <div class="about_darm">
-    <div class="accordion-wrap">
-              <div class="accordion-item">
-                <p class="accordion-header"> About 닮-DARM-!?<i class="bi bi-hand-index"></i> <i class="fa fa-angle-down" aria-hidden="true"></i> </p>
-              </div>
-              <div class="accordion-text">
-                <p class="accordion detail 1">TOPICS<p>
-                <p><%= t('A community between fans is possible with the bulletin board function')%></p>
-                <p class="accordion detail 2">EVENT<p>
-                <p><%= t('It is possible to post information such as off-meetings')%></p>
-                <p class="accordion detail 3">MESSAGE<p>
-                <p><%= t('You can directly approach users you care about or users you want to be friends with')%></p>
-                <p><%= t('You must follow each other in order to send messages')%></p>
-                <p class="accordion detail 4">USER<p>
-                <p><%= t('This is the user list screen You can search for users you like by clicking on the tags displayed on the screen or by entering their name in the search bar')%></p>
-                <p>
-              </div>
-    </div>
+
+
+  <div class="about_darm2">
+    <p id= "about"><i class="bi bi-patch-question-fill"></i>About 닮-DARM-<i class="bi bi-patch-question-fill"></i></p>
+    <p><%= t('This is an exchange app for otakus that allows you to find users similar to your favorites')%><br>
+        <i class="bi bi-search"></i><%= t('It supports automatic translation, so dont worry even if you dont understand the language') %><br>
+      <%= t('Find someone with the same hobbies!!!')%>
+    </p>
+      <details class="darm_details_all">
+        <summary><%= t('details') %></summary>
+    <table class="darm_table">
+      <tr>
+        <td id=darm><i class="bi bi-pencil-square"></i></td>
+        <td id=darm_setumei>
+          ■TOPICS■
+        <br><%= t('A community between fans is possible with the bulletin board function')%><td>
+      </tr>
+      <tr>
+        <td id=darm><i class="bi bi-person-hearts"></i></td>
+        <td id=darm_setumei>
+          ■EVENTS■
+        <br><%= t('It is possible to post information such as off-meetings')%></td>
+      </tr>
+      <tr>
+        <td id=darm><i class="bi bi-stopwatch"></i></td>
+        <td id=darm_setumei>
+          ■TIMES■
+        <br><%= t('The timeline (tweets) of the users you follow will now be displayed.')%></td>
+        </td>
+      </tr>
+      <tr>
+        <td id=darm><i class="bi bi-person-circle"></i></td>
+        <td id=darm_setumei>
+          ■USERS■
+          <br><%= t('This is the user list screen You can search for users you like by clicking on the tags displayed on the screen or by entering their name in the search bar')%><br>
+            <details class="darm_ditails">
+              <summary><%= t('Other features') %></summary>
+                <%= image_tag '説明掲載用画像_加工済みv2.png', class:"darm_user_image" %></td>
+            </details>
+      </tr>
+      <tr>
+        <td id=darm><i class="bi bi-chat-quote"></td>
+        <td id=darm_setumei>
+          ■MESSAGES■
+          <br><%= t('You can directly approach users you care about or users you want to be friends with')%><br>
+          <details class="darm_ditails">
+              <summary><%=t('detail')%></summary>
+                <%= image_tag 'darm_ditail_message.png', class:"darm_user_image" %>
+          </details>
+          <details class="darm_ditails">
+              <summary><%= t('Other features') %></summary>
+                <br><%= image_tag 'darm_ditail_message2.png', class:"darm_user_image" %></td>
+          
+          </details>
+      </tr>
+    </table>
+    </details>
   </div>
+
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>

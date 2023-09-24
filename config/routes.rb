@@ -15,6 +15,9 @@ Rails.application.routes.draw do
     put :update_location, on: :member
   end
   resources :events, only: [:index, :new, :create, :edit, :update, :destroy]
+  resources :timelines, only: [:index, :new, :create, :edit, :update, :destroy] do
+    post "/translate/auto", to: "timelines#translate_auto"
+  end
   resources :topics, only: [:index, :show, :edit, :destroy, :create, :update] do
     resources :posts
   end

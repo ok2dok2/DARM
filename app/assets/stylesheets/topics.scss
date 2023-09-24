@@ -68,3 +68,23 @@
   margin-top: 100px;
 }
 
+.topics-container{
+  display: flex; /* flexboxを使用 */
+  flex-wrap: wrap; /* コンテンツが横に並べられるが、行がオーバーフローしたら折り返す */
+  justify-content: flex-start;
+  margin-bottom: 500px;
+}
+
+.topic {
+  flex: 0 0 calc(33.33% - 20px); /* 幅は1/3、20pxの余白を持つ */
+  margin-right: 20px; /* トピック間に右の余白を設定 */
+  margin-bottom: 20px; /* トピック間に下の余白を設定 */
+  padding: 10px; /* トピックの内部余白 */
+  border: 1px solid #ccc; /* ボーダーを追加（オプション） */
+  text-align: center; /* コンテンツを中央寄せにする */
+}
+
+#bk1{
+  background-color: 	#D3D3D3;
+}
+

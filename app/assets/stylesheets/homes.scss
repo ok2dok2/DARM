@@ -81,15 +81,66 @@ border-bottom: 0;
   object-fit: cover;
 }
 
-.about_darm{
-  width: 60%;
-  margin: auto;
-  text-align: center;
-  height: 100vh;
-}
-
 #myCarousel {
   margin-top: 56px;
 }
 
+.about_darm2{
+  width: 60%;
+  margin: auto;
+  text-align: center;
+  height: 210vh;
+}
 
+#about {
+  width: 100%;
+  padding-top: 20px;
+  font-size: 30px;
+}
+
+.darm_table {
+  width: 100%;
+  margin: auto;
+}
+
+#darm {
+  font-size: 70px;
+}
+
+#darm_setumei {
+  width: 650px;
+  text-align: left;
+}
+
+.darm_user_image {
+  width: 580px;
+}
+
+.darm_details_all {
+  text-align: center;
+  padding: 8px 19px;
+    margin: 2em 0;
+    color: #2c2c2f;
+    background: white;
+    border-top: solid 5px #5989cf;
+    border-bottom: solid 5px #5989cf;
+}
+
+
+.darm_ditails {
+  text-align: left;
+  padding-top: 10px;
+}
+
+.darm_ditails:not([open]) summary::before {
+  content: "▷";
+  background-color: pink;
+}
+
+.darm_ditails[open] summary::before {
+  content: "▼";
+}
+
+.darm_table td {
+  padding-top: 30px;
+}

@@ -13,7 +13,11 @@
           <% end %>
           <p><%= @distances_following[i] %>km</p>
         </td>
-        <td class="user_introduce"><%= user.introduce %></td>
+        <td class="user_introduce">
+        <% if user.word.present? %>
+          <%= user.word %>
+          <% end %>
+        </td>
         <td><%= render 'users/tag_list', tag_list: user.tag_list %>
         <p id="user_moji"><%= t('maybe similar') %>!?</p></td>
         <% unless user.id == current_user.id %>
@@ -25,7 +29,6 @@
         <%end%>
     <% end %>
     <% end %>
-
     </tr>
     </table>
   </tbody>

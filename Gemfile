@@ -19,6 +19,7 @@ gem 'net-imap'
 gem 'net-pop'
 gem 'rack-mini-profiler', '~> 2.0'
 gem 'rexml'
+gem 'kaminari'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails', '~> 6.1.6'

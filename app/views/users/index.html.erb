@@ -2,49 +2,55 @@
 
 
   <div class="user_search_ber">
-  <%= form_tag users_path, method: :get do%>
-  <%= text_field_tag :tag, params[:tag], placeholder: t('Find your guess')%>
-  <button class="user_button" type="submit" >
-  <i class="bi bi-search"></i>
-  </button>
-  <% end %>
+    <%= form_tag users_path, method: :get do%>
+      <%= text_field_tag :tag, params[:tag], placeholder: t('Find your guess')%>
+      <button class="user_button" type="submit" >
+        <i class="bi bi-search"></i>
+      </button>
+    <% end %>
   </div>
 
   <hr style="border-top: 5px double #94d175; width: 80%; border-bottom: none;">
-<p>&nbsp;</p>
+  <p>&nbsp;</p>
 
-<tbody>
-  <table class="index_table" >
-    <% @users.each_with_index do |user,i| %>
-    <tr>
-        <td id="user_image_td">
-          <%= link_to user_path(user.id) do%>
-          <% if user.images.present? %>
-          <%= image_tag user.first_image ,class: "user_icon" %>
-          <% else %>
-          <%= image_tag "default.png", class: "user_icon" %>
+  <tbody>
+    <table class="index_table" >
+      <% @users.each_with_index do |user,i| %>
+      <tr>
+          <td id="user_image_td">
+            <%= link_to user_path(user.id) do%>
+            <% if user.images.present? %>
+            <%= image_tag user.first_image ,class: "user_icon" %>
+            <% else %>
+            <%= image_tag "default.png", class: "user_icon" %>
+            <% end %>
+            <% end %>
+          <p><%= @distances[i] %>km</p>
+          </td>
+          <td class="user_introduce">
+          <% if user.word.present? %>
+          <%= user.word %>
           <% end %>
+          </td>
+          <td><%= render 'users/tag_list', tag_list: user.tag_list %>
+          <p id="user_moji"><%= t('maybe similar') %>!?</p></td>
+          <% unless user.id == current_user.id %>
+          <td><%= render 'follow_form', user: user, i: i %></td>
+          <% if current_user.followers.exists?(user.id)%>
+          <td><%= link_to conversations_path(sender_id: current_user.id, recipient_id: user.id),data: {"turbolinks" => false}, method: :post do %>
+            <i class="bi bi-envelope-heart"></i></td>
+            <% end %>
+          <%end%>
           <% end %>
-        <p><%= @distances[i] %>km</p>
-        </td>
-        <td class="user_introduce"><%= user.introduce %></td>
-        <td><%= render 'users/tag_list', tag_list: user.tag_list %>
-        <p id="user_moji"><%= t('maybe similar') %>!?</p></td>
-        <% unless user.id == current_user.id %>
-        <td><%= render 'follow_form', user: user, i: i %></td>
-        <% if current_user.followers.exists?(user.id)%>
-        <td><%= link_to conversations_path(sender_id: current_user.id, recipient_id: user.id),data: {"turbolinks" => false}, method: :post do %>
-          <i class="bi bi-envelope-heart"></i></td>
-          <% end %>
-        <%end%>
-        <% end %>
-    <% end %>
-    </tr>
-    </table>
+      <% end %>
+      </tr>
+      </table>
   </tbody>
-
-
+  <div class="under_paginate">
+    <%= paginate @users%>
+  </div>
 </div>
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>

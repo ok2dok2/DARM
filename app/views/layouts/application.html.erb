@@ -30,8 +30,10 @@
       <%= link_to t("logout"), destroy_user_session_path, method: :delete %>
       <%= link_to t("mypage"), user_path(current_user.id), data: { "turbolinks" => false } %>
     <% else %>
-      <%= link_to t("sign up"), new_user_registration_path %>
-      <%= link_to t("login"), new_user_session_path %>
+      <%= link_to t("sign up"), new_user_registration_path, class: "login" %>
+      <%= link_to t("login"), new_user_session_path, class: "login" %>
+      <%= link_to t("Log in guest"), users_guest_sign_in_path, method: :post, class: "login" %>
+      <%= link_to t("Log in admin guest"), users_guest_admin_sign_in_path, method: :post, class: "login"%>
     <% end %>
   </div>
 
@@ -63,6 +65,10 @@
             <li class="nav-item">
               <a class="nav-link" href="<%= events_path %>"><br>EVENTS
               <br><i class="bi bi-person-hearts"></i></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="<%= timelines_path %>"><br>TIMES
+              <br><i class="bi bi-stopwatch"></i></a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="<%= users_path %>"><br>USERS
