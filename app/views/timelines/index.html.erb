@@ -1,81 +1,89 @@
 <div class="timeline_all">
-<div class="times_button">
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal1">
-  <%= t('tweet') %>
-</button>
-</div>
-<div class="modal fade" id="modal1" tabindex="-1"
-      role="dialog" aria-labelledby="label1" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="label1"> </h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-  <div class="timeline_form">
-    <%= form_with(model: @timeline) do |form| %>
-      <p><%= form.text_field :content, placeholder:t('comment') %></p>
-      <p>
-              <%=  t('image') %>
-              <label for="image-input" class="topic_upload">
-              <i class="bi bi-camera"></i>
-              </label>
-              <%= form.file_field :images, multiple: true, id: "image-input" %>
-            </p>
-      <div class="actions">
-        <%= button_tag class: 'btn btn-secondary' do %>
-        作成
+  <div class="times_button">
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal1">
+    <%= t('tweet') %>
+    </button>
+  </div>
+  <div class="modal fade" id="modal1" tabindex="-1"
+        role="dialog" aria-labelledby="label1" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="label1"> </h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+    <div class="timeline_form">
+      <%= form_with(model: @timeline) do |form| %>
+        <p><%= form.text_field :content, placeholder:t('comment') %></p>
+        <p>
+                <%=  t('image') %>
+                <label for="image-input" class="topic_upload">
+                <i class="bi bi-camera"></i>
+                </label>
+                <%= form.file_field :images, multiple: true, id: "image-input" %>
+              </p>
+        <div class="actions">
+          <%= button_tag class: 'btn btn-secondary' do %>
+          作成
+        <% end %>
+        </div>
       <% end %>
-      </div>
-    <% end %>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
       </div>
     </div>
   </div>
-</div>
-</div>
+  </div>
 
-<div class="timeline">
-<table>
-  <% @timelines.each do |timeline| %>
-    <tr>
-      <td><%= image_tag timeline.user.first_image ,class: "timeline_user_icon" %><%= timeline.user.name %></td>
-    </tr>
-    <tr>
-      <td>
-        <% if timeline.images.present? %>
-          <div class="slideshow-container">
-            <% timeline.images.each_with_index do |image, index| %>
-              <div class="mySlides <%= index == 0 ? 'active' : '' %>">
-                <%= image_tag image.to_s %>
-              </div>
-            <% end %>
-            <a class="prev" onclick="plusSlides(-1, this)">&#10094;</a>
-            <a class="next" onclick="plusSlides(1, this)">&#10095;</a>
-          </div>
+  <div class="timeline">
+  <table>
+    <% @timelines.each do |timeline| %>
+      <tr>
+        <td><%= image_tag timeline.user.first_image ,class: "timeline_user_icon" %><%= timeline.user.name %></td>
+      </tr>
+      <tr>
+        <td>
+          <% if timeline.images.present? %>
+            <div class="slideshow-container">
+              <% timeline.images.each_with_index do |image, index| %>
+                <div class="mySlides <%= index == 0 ? 'active' : '' %>">
+                  <%= image_tag image.to_s %>
+                </div>
+              <% end %>
+              <a class="prev" onclick="plusSlides(-1, this)">&#10094;</a>
+              <a class="next" onclick="plusSlides(1, this)">&#10095;</a>
+            </div>
+          <% end %>
+        </td>
+      </tr>
+      <tr>
+        <% if timeline.content.present? %>
+          <td><%= timeline.content %><br>
+          <a href="" class="translate-link" data-timeline-id="<%= timeline.id %>", data-original-text="<%= timeline.content %>"><%= t('do translation') %></a>
+          <div class="translation-result_auto" id="translation_result_auto_<%= timeline.id %>"></div></td>
         <% end %>
-      </td>
-    </tr>
-    <tr>
-      <% if timeline.content.present? %>
-        <td><%= timeline.content %><br>
-        <a href="" class="translate-link" data-timeline-id="<%= timeline.id %>", data-original-text="<%= timeline.content %>"><%= t('do translation') %></a>
-        <div class="translation-result_auto" id="translation_result_auto_<%= timeline.id %>"></div></td>
-      <% end %>
-    </tr>
-    <tr>
-      <td><hr class="hr_timeline"></td>
-    </tr>
-  <% end %>
-</table>
-</div>
-<%= paginate @timelines %>
-</div>
+      </tr>
+      <tr>---------------
+          <td><%= link_to timeline_favorites_path(timeline.id), method: :post, remote: false, class: "favorite-btn favorite-post" do %>
+            <i class="far fa-thumbs-up"></i>
+            <span>いいね！</span>
+            <%= @timeline.favorites.length %> <!-- お気に入り登録数 -->
+          <% end %>
+          </td>
+      </tr>----------------
+      <tr>
+        <td><hr class="hr_timeline"></td>
+      </tr>
+    <% end %>
+  </table>
+  </div>
+  <%= paginate @timelines %>
+  </div>
 
 
 <script>

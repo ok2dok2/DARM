@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_08_28_054610) do
+ActiveRecord::Schema.define(version: 2023_10_21_043817) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,6 +36,15 @@ ActiveRecord::Schema.define(version: 2023_08_28_054610) do
     t.text "image"
     t.text "introduce"
     t.index ["user_id"], name: "index_events_on_user_id"
+  end
+
+  create_table "favorites", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "timeline_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["timeline_id"], name: "index_favorites_on_timeline_id"
+    t.index ["user_id"], name: "index_favorites_on_user_id"
   end
 
   create_table "messages", force: :cascade do |t|
@@ -148,6 +157,8 @@ ActiveRecord::Schema.define(version: 2023_08_28_054610) do
   end
 
   add_foreign_key "events", "users"
+  add_foreign_key "favorites", "timelines"
+  add_foreign_key "favorites", "users"
   add_foreign_key "messages", "conversations"
   add_foreign_key "messages", "users"
   add_foreign_key "posts", "topics"
