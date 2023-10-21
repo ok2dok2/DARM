@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     post 'users/guest_admin_sign_in', to: 'users/sessions#guest_admin_sign_in'
   end
   resources :users, only: [:show, :index, :edit] do
+    get :favorites, on: :collection
     member do
       get :following, :follower
     end
@@ -17,6 +18,7 @@ Rails.application.routes.draw do
   resources :events, only: [:index, :new, :create, :edit, :update, :destroy]
   resources :timelines, only: [:index, :new, :create, :edit, :update, :destroy] do
     post "/translate/auto", to: "timelines#translate_auto"
+    resources :favorites, only: [:create, :destroy]
   end
   resources :topics, only: [:index, :show, :edit, :destroy, :create, :update] do
     resources :posts
